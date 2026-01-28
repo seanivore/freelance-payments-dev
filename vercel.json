@@ -14,7 +14,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://payments.august.style"
+          "value": "https://dev.payments.august.style"
         },
         {
           "key": "Access-Control-Allow-Methods",
