@@ -1,11 +1,11 @@
 {
   "jobs": {
-    "test-client-job": {
-      "file_path": "assets/jobs/uid-jza-440.json",
-      "job_id": "uid-jza-440",
-      "login_keyword": "client-job",
-      "login_name": "Test"
+    "donovan-check-in-ai-app": {
+      "file_path": "assets/jobs/uid-pdk-481.json",
+      "job_id": "uid-pdk-481",
+      "login_keyword": "check-in-ai-app",
+      "login_name": "Donovan"
     }
   },
-  "generated_at": "2026-01-29T01:14:10.508884Z"
+  "generated_at": "2026-01-29T03:34:21.365446Z"
 }
