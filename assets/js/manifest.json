@@ -1,4 +1,11 @@
 {
-  "jobs": {},
-  "generated_at": "2026-01-29T00:40:06.846177Z"
+  "jobs": {
+    "test-client-job": {
+      "file_path": "assets/jobs/uid-jza-440.json",
+      "job_id": "uid-jza-440",
+      "login_keyword": "client-job",
+      "login_name": "Test"
+    }
+  },
+  "generated_at": "2026-01-29T00:46:16.023351Z"
 }
