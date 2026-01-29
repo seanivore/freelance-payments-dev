@@ -89,7 +89,7 @@ export default async (req, res) => {
 
     // Trigger GitHub Actions workflow to update state
     const githubToken = process.env.GITHUB_TOKEN;
-    const repo = process.env.GITHUB_REPO || 'seanivore/freelance-payments';
+    const repo = process.env.GITHUB_REPO || 'seanivore/freelance-payments-dev';
     const workflowId = 'user-exit-events.yml';
 
     if (githubToken) {
