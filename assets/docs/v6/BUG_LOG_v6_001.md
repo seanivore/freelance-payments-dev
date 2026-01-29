@@ -15,7 +15,7 @@ This log tracks bugs and fixes during v6 development environment setup. Follow t
 
 **Created**: 2026-01-29
 **Last Updated**: 2026-01-29
-**Status**: Resolved
+**Status**: Partially Resolved (1 open bug)
 
 **Context**:
 
@@ -162,6 +162,59 @@ When copying/cloning this repository to create new environments:
 2. **Push-triggered vs API-triggered workflows behave differently** - A workflow can work via push but fail via API if not indexed
 3. **404 from GitHub Actions API usually means the workflow isn't registered** - Not that the file doesn't exist
 4. **Debug logging is valuable** - The logs helped confirm the fix worked immediately
+
+---
+
+## BUG_v6_001_002 - Missing `contract_signed` and `invoice` Events
+
+**Reported**: 2026-01-29
+**Status**: OPEN - TO BE INVESTIGATED
+
+### Observed Behavior
+
+During testing, some events were recorded while others were skipped:
+- `logged_in` - **Recorded** ✅
+- `contract_signed` - **Skipped** ❌
+- `invoice` - **Skipped** ❌
+- `payment_1` - **Recorded** ✅
+
+### Expected Behavior
+
+All four events should be recorded in the JSON file with timestamps.
+
+### Similar Issue
+
+This matches the pattern from **BUG_06_001** in `v5/v5_6_0/LOG_06.md`:
+- Same symptom: middle events (`contract_signed`, `invoice`) lost
+- First event (`logged_in`) and payment event (`payment_1`) recorded
+- Events were likely buffered but lost before flush
+
+### Potential Causes (from v5 investigation)
+
+1. **Back navigation cleared buffer**: React re-render reset `eventBufferRef`
+2. **Stripe redirect timing**: Redirect occurred before buffer flushed
+3. **Session storage dedup false positive**: `shouldSkipFlush` hash check incorrectly skipped
+4. **Unified flush not triggering**: Payment completion should flush all buffered events together
+
+### Root Cause Hypothesis
+
+The `payment_1` event triggers a unified flush that should include all buffered events. If `contract_signed` and `invoice` were in the buffer, they should have been sent together with `payment_1`. Their absence suggests either:
+1. Events never made it to the buffer (queueing issue)
+2. Buffer was cleared before payment flush (premature flush or navigation)
+3. Events were in buffer but excluded from the unified flush payload
+
+### Investigation Steps (for next session)
+
+1. Check browser console logs for `📝 Event queued:` messages during contract signing and invoice acknowledgment
+2. Check if `📊 Sending all events in one batch:` log shows all expected events
+3. Review the unified flush logic in `App.tsx` around payment completion
+4. Test with network tab open to see actual payload sent to `/api/track-event`
+
+### Notes
+
+- This is a recurring pattern from v5 that may not have been fully resolved
+- The v5 fix involved unified flush on payment completion - verify this is working correctly
+- Debug logging is already in place which should help investigation
 
 ---
 
