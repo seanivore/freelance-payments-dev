@@ -1,127 +1,182 @@
-# Freelance Payments Platform
+# Freelance Payments Platform — Development Environment
 
-A zero-database payment collection system that turns static hosting into a full-featured business application.
+This is the **development repository** for the freelance payments platform. All development and testing happens here before promoting to production.
 
-## The Architecture That Shouldn't Work (But Does)
-
-This platform processes real payments, generates legal documents, and manages complex multi-step user flows — all without a traditional database, server, or backend infrastructure costs.
-
-**How?** By treating JSON files as the single source of truth and orchestrating state changes through GitHub Actions workflows.
-
-### Key Innovations
-
-**1. JSON-as-Database Pattern**
-- Each client job is a single JSON file containing all state, documents, and payment data
-- GitHub becomes the database with built-in version control, audit trails, and conflict resolution
-- No database hosting costs, no connection pooling, no schema migrations
-
-**2. FluxGate State Machine**
-- Client progress tracked via timestamp-based state gates
-- Each gate represents a completed action (contract signed, invoice acknowledged, payment made)
-- Frontend reads state and routes to the correct view — no server-side session management
-
-**3. Exit-Event Architecture**
-- User actions buffered in-memory, flushed on page exit or with payment completion
-- Payment completion triggers unified flush of ALL events in single batch
-- Single API call triggers single workflow run — no duplicate processing
-- `navigator.sendBeacon` ensures events survive page close
-
-**4. Hybrid Static/Serverless Deployment**
-- Frontend: Static files on GitHub Pages (free)
-- Backend: Vercel serverless functions (free tier)
-- Automation: GitHub Actions (free for public repos)
-- **Total infrastructure cost: $0/month**
-
-## What It Does
-
-A freelancer sends their client a login link. The client:
-
-1. **Signs a contract** — PDF rendered client-side, signature captured on canvas
-2. **Reviews an invoice** — Generated from Google Docs templates via API
-3. **Makes payment** — Stripe Checkout with custom UI
-4. **Returns later for final payment** — State persists across sessions
-5. **Downloads all documents** — Contract, invoice, balance PDF
-
-Each step updates the JSON file via GitHub Actions. The next login routes to the correct step automatically.
-
-## Technical Highlights
-
-### Zero-Trust Frontend
-- No sensitive data in client code
-- Stripe keys are publishable-only
-- All payment processing happens server-side
-- Webhook verification for payment confirmation
-
-### Bulletproof Event Delivery
-- CORS-safe `sendBeacon` with `text/plain` content type
-- Fallback to `fetch` with `keepalive` flag
-- Session-level deduplication prevents duplicate events
-- Git rebase in workflows prevents merge conflicts
-
-### Mobile-First Modals
-- Custom drawer component tuned for iOS keyboard behavior
-- Disabled `vaul` library's aggressive repositioning
-- Native keyboard handling preserved
-
-### PDF Generation Pipeline
-- Google Docs as template engine
-- OAuth refresh token stored in GitHub Secrets
-- PDFs generated on admin push, stored in repo
-- Client-side rendering via `pdfjs-dist`
-
-## Stack
-
-| Layer      | Technology                                       |
-|------------|--------------------------------------------------|
-| Frontend   | React 18 + TypeScript + Vite                     |
-| Styling    | Tailwind CSS + shadcn/ui                         |
-| Payments   | Stripe Checkout (Custom UI)                      |
-| PDF        | pdfjs-dist (render) + Google Docs API (generate) |
-| Backend    | Vercel Serverless Functions                      |
-| Automation | GitHub Actions                                   |
-| Hosting    | GitHub Pages + Vercel                            |
-| "Database" | JSON files in Git                                |
-
-## Why This Architecture?
-
-### The Problem
-Traditional payment platforms require:
-- Database hosting ($20-100/month)
-- Server infrastructure ($10-50/month)
-- Session management complexity
-- DevOps overhead
-
-### The Solution
-This architecture eliminates all of that by:
-- Using Git as a database (free, versioned, auditable)
-- Treating workflows as the "backend" (event-driven, scalable)
-- Keeping the frontend truly static (cacheable, fast)
-- Leveraging free tiers strategically (Vercel, GitHub, Stripe)
-
-### The Trade-offs
-- Not suitable for high-volume (GitHub Actions has rate limits)
-- Requires Git knowledge to debug
-- JSON conflicts possible with concurrent edits (mitigated by rebase)
-
-**Perfect for**: Freelancers, small agencies, anyone processing <100 payments/month who wants zero infrastructure costs.
-
-## Development
-
-```bash
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
-```
-
-## Documentation
-
-For complete technical documentation, see [`assets/docs/PAYMENTS_PLATFORM.md`](assets/docs/PAYMENTS_PLATFORM.md).
+> **Important**: This repo uses `freelance-payments` as the main branch name (same as production). This is intentional — it minimizes configuration differences during updates and reduces the chance of bugs. This deviates from the typical pattern of matching branch name to repo name.
 
 ---
 
-*Built with the philosophy that the best infrastructure is the infrastructure you don't have to manage.*
+## Environment URLs
+
+| Type             | URL                                       |
+|------------------|-------------------------------------------|
+| Frontend         | https://dev.payments.august.style         |
+| Backend API      | https://freelance-payments-dev.vercel.app |
+| Stripe Dashboard | https://dashboard.stripe.com/test         |
+
+**Production** (do not use for development):
+- Frontend: https://payments.august.style
+- Repo: https://github.com/seanivore/freelance-payments
+
+---
+
+## Test Card
+
+```
+Number: 4242 4242 4242 4242
+Expiry: Any future date (e.g., 12/34)
+CVC: Any 3 digits (e.g., 123)
+ZIP: Any 5 digits (e.g., 12345)
+```
+
+---
+
+## Development Workflow
+
+### Daily Development
+
+```bash
+cd ~/Development/freelance-payments-dev
+
+# Make changes
+# ... edit files ...
+
+# Test locally
+npm run dev
+
+# Push to dev
+git add .
+git commit -m "Add feature X"
+git push
+
+# Test on dev.payments.august.style
+# Verify workflows run correctly
+# Test full user flow
+```
+
+### Creating Test Jobs
+
+Use the `test-job` command (symlinked to this dev repo):
+
+```bash
+test-job -p "Test Project" -nme "Test Client" -c 500.00 -d 50.00
+```
+
+Then move the created JSON from `assets/docs/` to `assets/jobs/` and push.
+
+> **Note**: The `job` command creates jobs in the **live repo**. Use `test-job` for development. Both commands use the same script but are symlinked to different repos.
+
+---
+
+## Promoting to Production
+
+When a feature is ready for production, follow the promotion process in `assets/docs/v6/GO_LIVE_SETUP_DEV.md`.
+
+### Quick Reference: Files to Copy
+
+**Directories (complete overwrite)**:
+```
+src/
+api/
+.github/
+assets/templates/
+assets/scripts/
+```
+
+**Config files**:
+```
+package.json
+package-lock.json
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+tailwind.config.js
+postcss.config.js
+index.html
+job.html
+404.html
+assets/docs/uid-xxx-xxx.json
+assets/docs/GUIDE_uid-xxx-xxx.json.md
+```
+
+### Files That NEVER Get Copied
+
+```
+CNAME                   # Different per environment
+vercel.json             # Different CORS per environment
+src/lib/api.ts          # Must restore production URL after copy
+README.md               # Different per environment
+assets/jobs/*.json      # Real client data in prod
+assets/pdf/**           # Client PDFs in prod
+assets/js/manifest.json # Auto-generated
+assets/docs/v1-v6/      # Version history (dev only)
+assets/docs/RESOURCES/  # Reference materials (dev only)
+```
+
+### After Copying, Restore These in Production
+
+**`src/lib/api.ts`**:
+```typescript
+return 'https://freelance-payments-neon.vercel.app';
+```
+
+**`vercel.json`**:
+```json
+"Access-Control-Allow-Origin": "https://payments.august.style"
+```
+
+---
+
+## Changelog Protocol
+
+Maintain `CHANGELOG.md` with all changes. Use these tags:
+
+| Tag          | Description                                       |
+|--------------|---------------------------------------------------|
+| `[CODE]`     | Changes to `src/`, `api/`, `.github/`             |
+| `[CONFIG]`   | Changes to `package.json`, `vite.config.ts`, etc. |
+| `[SCHEMA]`   | Changes to JSON schema structure                  |
+| `[TEMPLATE]` | Changes to `assets/templates/`                    |
+| `[DOCS]`     | Documentation updates                             |
+
+Example entry:
+```markdown
+## [Unreleased]
+
+### [CODE] Event Tracking
+- Added popstate listener for back-button handling
+- Unified flush on payment completion
+
+### [SCHEMA] Signed PDF Support
+- Added `docs.contract.signed_pdf` field
+- Added `docs.contract.signed_url` field
+```
+
+---
+
+## Architecture
+
+See `assets/docs/PAYMENTS_PLATFORM.md` for complete technical documentation.
+
+**Key Points**:
+- JSON files are the single source of truth (no database)
+- GitHub Actions handle all state changes
+- GitHub Pages serves static frontend
+- Vercel serves serverless API functions
+- Events buffer in-memory, flush on page exit or payment completion
+
+---
+
+## Documentation
+
+| Document                                | Purpose                           |
+|-----------------------------------------|-----------------------------------|
+| `assets/docs/PAYMENTS_PLATFORM.md`      | Complete technical documentation  |
+| `assets/docs/v6/GO_LIVE_SETUP_DEV.md`   | Setup and promotion guide         |
+| `assets/docs/GUIDE_uid-xxx-xxx.json.md` | How to create new jobs            |
+| `assets/docs/v6/IMPL_*.md`              | Implementation plans for features |
+| `assets/docs/v1-v5/`                    | Version history and bug logs      |
+
+---
+
+_This is the development environment. Do not use for real client data._

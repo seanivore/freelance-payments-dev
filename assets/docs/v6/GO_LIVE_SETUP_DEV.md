@@ -29,7 +29,7 @@ This document provides a complete, sequential guide for:
 │                                                                 │
 │  Repo: freelance-payments                                       │
 │  Branch: freelance-payments                                     │
-│  Frontend: dev.payments.august.style (GitHub Pages)                 │
+│  Frontend: payments.august.style (GitHub Pages)                 │
 │  Backend: freelance-payments-neon.vercel.app (Vercel)           │
 │  Stripe: Live keys (sk_live_*, pk_live_*)                       │
 │  Data: Real client JSON files                                   │
@@ -89,11 +89,11 @@ ZIP: Any 5 digits (e.g., 12345)
 
 ---
 
-# Part 1: Pre-Setup Cleanup
+# Part 1: Pre-Setup Cleanup -- **DONE ✅**
 
 Before setting up environments, clean up obsolete files from the current repo.
 
-## Files Already Deleted (Obsolete)
+## Files Already Deleted (Obsolete) -- **DONE ✅**
 
 These legacy files from the pre-React vanilla JS version have been removed:
 
@@ -113,11 +113,11 @@ VSCode backup files also removed:
 
 ---
 
-# Part 2: Set Up Development Repository (Do First)
+# Part 2: Set Up Development Repository (Do First) -- **DONE ✅**
 
 Complete this section before transitioning to live production.
 
-## Step 1: Create Development Repository
+## Step 1: Create Development Repository -- **DONE ✅**
 
 **On GitHub**:
 1. Go to https://github.com/new
@@ -146,7 +146,7 @@ git remote -v
 
 ---
 
-## Step 2: Update Dev Repo Configuration
+## Step 2: Update Dev Repo Configuration -- **DONE ✅**
 
 ### 2.1 Update CNAME for Dev Domain
 
@@ -155,7 +155,7 @@ git remote -v
 dev.payments.august.style
 ```
 
-### 2.2 Update Vercel CORS Configuration
+### 2.2 Update Vercel CORS Configuration -- **DONE ✅**
 
 **File**: `vercel.json`
 
@@ -176,7 +176,7 @@ Change the CORS origin to dev domain:
 }
 ```
 
-### 2.3 Update API Base URL
+### 2.3 Update API Base URL -- **DONE ✅**
 
 **File**: `src/lib/api.ts`
 
@@ -191,7 +191,7 @@ const getApiBaseUrl = (): string => {
 };
 ```
 
-### 2.4 Update Return URLs in Job Template
+### 2.4 Update Return URLs in Job Template -- **DONE ✅**
 
 **File**: `assets/docs/uid-xxx-xxx.json`
 
@@ -199,9 +199,9 @@ Search and replace `payments.august.style` → `dev.payments.august.style` in th
 
 ---
 
-## Step 3: Clean Up Dev Repo
+## Step 3: Clean Up Dev Repo -- **DONE ✅**
 
-### 3.1 Remove Production Client Data
+### 3.1 Remove Production Client Data -- **DONE ✅**
 
 ```bash
 # Remove all job JSON files (we'll create fresh test jobs)
@@ -216,7 +216,7 @@ rm -rf assets/pdf/balance/*.pdf
 rm assets/js/manifest.json
 ```
 
-### 3.2 Set Up `test-job` Terminal Command
+### 3.2 Set Up `test-job` Terminal Command -- **DONE ✅**
 
 The existing `job` command is symlinked to the **live repo** and will always create jobs there. We need a separate `test-job` command for the dev repo.
 
@@ -236,7 +236,7 @@ test-job --help
 
 > **How it works**: The `job.sh` script uses relative paths from its own location. So `job` (symlinked to live repo) creates jobs in the live repo, and `test-job` (symlinked to dev repo) creates jobs in the dev repo. Same script, different contexts.
 
-### 3.3 Create Fresh Test JSON Files
+### 3.3 Create Fresh Test JSON Files -- **DONE ✅**
 
 Use the new `test-job` command to create test jobs in the dev repo:
 
@@ -248,7 +248,7 @@ Or copy the template manually from `assets/docs/uid-xxx-xxx.json`.
 
 ---
 
-## Step 4: DNS for Dev Domain
+## Step 4: DNS for Dev Domain -- **DONE ✅**
 
 **Status**: Already configured in Cloudflare
 
@@ -268,7 +268,7 @@ dig dev.payments.august.style
 
 ---
 
-## Step 5: Set Up GitHub Pages for Dev Repo
+## Step 5: Set Up GitHub Pages for Dev Repo -- **DONE ✅**
 
 1. Go to: https://github.com/seanivore/freelance-payments-dev/settings/pages
 2. **Source: GitHub Actions** (NOT "Deploy from a branch")
@@ -279,7 +279,7 @@ dig dev.payments.august.style
 
 ---
 
-## Step 6: Create Vercel Project for Dev
+## Step 6: Create Vercel Project for Dev -- **DONE ✅**
 
 1. Go to: https://vercel.com/new
 2. Import `freelance-payments-dev` repository
@@ -300,7 +300,7 @@ dig dev.payments.august.style
 
 ---
 
-## Step 7: Create Stripe Webhook for Dev
+## Step 7: Create Stripe Webhook for Dev -- **DONE ✅**
 
 1. Go to: https://dashboard.stripe.com/test/webhooks
 2. Add endpoint
@@ -310,7 +310,7 @@ dig dev.payments.august.style
 
 ---
  
-## Step 8: Add GitHub Secrets for Dev Repo
+## Step 8: Add GitHub Secrets for Dev Repo -- **DONE ✅**
 
 Go to: https://github.com/seanivore/freelance-payments-dev/settings/secrets/actions
 
@@ -322,7 +322,7 @@ Go to: https://github.com/seanivore/freelance-payments-dev/settings/secrets/acti
 
 ---
 
-## Step 9: Push and Verify
+## Step 9: Push and Verify -- **DONE ✅**
 
 ```bash
 cd ~/Development/freelance-payments-dev
@@ -336,175 +336,15 @@ git push -u origin freelance-payments
 ```
 
 **Verification Checklist**:
-- [ ] GitHub Pages deploys to `dev.payments.august.style`
-- [ ] Vercel deploys to `freelance-payments-dev.vercel.app`
-- [ ] Create a test job, push, verify `admin-push.yml` runs
-- [ ] Login to test job, verify full flow works
-- [ ] Complete payment with test card `4242 4242 4242 4242`
+- [x] GitHub Pages deploys to `dev.payments.august.style`
+- [x] Vercel deploys to `freelance-payments-dev.vercel.app`
+- [x] Create a test job, push, verify `admin-push.yml` runs
+- [ ] Login to test job, verify full flow works -- **ERROR: Needs new test job** 
+- [x] Complete payment with test card `4242 4242 4242 4242`
 
 ---
 
-# Part 3: Transition to Live Production
-
-Complete this AFTER the dev environment is fully working.
-
-## Pre-Launch Testing
-
-### Friend Testing
-- [ ] Create 2-3 test jobs for friends
-- [ ] Provide login credentials and test card
-- [ ] Have them complete full flow (contract → invoice → payment1 → balance → payment2)
-- [ ] Collect feedback on UX issues
-
-### Self-Testing
-- [ ] Complete full flow on mobile (record screen)
-- [ ] Complete full flow on desktop (record screen)
-- [ ] Save recordings for portfolio/documentation
-
-### Verify
-- [ ] All events trigger correctly
-- [ ] JSON updates properly
-- [ ] Routing works at each step
-- [ ] PDFs display correctly
-- [ ] Stripe checkout works smoothly
-
----
-
-## Step 1: Switch Stripe to Live Mode
-
-### Get Live Keys
-1. Go to: https://dashboard.stripe.com/apikeys
-2. Switch to Live mode (toggle at top)
-3. Copy `Publishable key` (pk_live_...)
-4. Reveal and copy `Secret key` (sk_live_...)
-
-### Create Live Webhook
-1. Go to: https://dashboard.stripe.com/webhooks (Live mode)
-2. Add endpoint
-3. Endpoint URL: `https://freelance-payments-neon.vercel.app/api/webhook`
-4. Events: `checkout.session.completed`
-5. Copy signing secret (whsec_...)
-
----
-
-## Step 2: Update Vercel Environment Variables
-
-**Navigate to**: Vercel → freelance-payments → Settings → Environment Variables
-
-| Variable                      | Old (Test)       | New (Live)       |
-|-------------------------------|------------------|------------------|
-| `STRIPE_SECRET_KEY`           | `sk_test_...`    | `sk_live_...`    |
-| `VITE_STRIPE_PUBLISHABLE_KEY` | `pk_test_...`    | `pk_live_...`    |
-| `STRIPE_WEBHOOK_SECRET`       | `whsec_test_...` | `whsec_live_...` |
-
-**Important**: For the live repo, set these for ALL environments (Production, Preview, Development).
-
----
-
-## Step 3: Clean Up Test Data from Live Repo
-
-### Delete Test Jobs
-```bash
-cd ~/Development/freelance-payments
-
-# Delete test job file
-rm assets/jobs/uid-aqi-031.json
-
-# Delete ALL test PDFs
-rm assets/pdf/contract/*.pdf
-rm assets/pdf/invoice/*.pdf
-rm assets/pdf/balance/*.pdf
-
-# Keep the .gitkeep files
-touch assets/pdf/contract/.gitkeep
-touch assets/pdf/invoice/.gitkeep
-touch assets/pdf/balance/.gitkeep
-
-# Reset manifest
-echo '{"jobs":[]}' > assets/js/manifest.json
-```
-
-### Delete Version History (Live Repo Only)
-
-These directories should only exist in the dev repo:
-
-```bash
-# Remove version history
-rm -rf assets/docs/v1/
-rm -rf assets/docs/v2/
-rm -rf assets/docs/v3/
-rm -rf assets/docs/v4/
-rm -rf assets/docs/v5/
-rm -rf assets/docs/RESOURCES/
-
-# Remove implementation planning docs (keep only in dev)
-rm assets/docs/IMPL_DEV_BRANCH.md
-rm assets/docs/IMPL_LAUNCH.md
-rm assets/docs/v6/IMPL_EMAIL_PDFS.md
-rm assets/docs/v6/IMPL_SIGNED_PDF.md
-rm assets/docs/v6/PAYMENTS_LOGIN_SPEC.md
-```
-
-### Keep These Files (Required)
-- `assets/docs/PAYMENTS_PLATFORM.md` — System documentation
-- `assets/docs/uid-xxx-xxx.json` — Job template (used by `job` command)
-- `assets/docs/GUIDE_uid-xxx-xxx.json.md` — Admin guide for creating jobs
-- `assets/docs/v6/GO_LIVE_SETUP_DEV.md` — This document
-
----
-
-## Step 4: Verify Configuration
-
-**File**: `CNAME`
-```
-dev.payments.august.style
-```
-
-**File**: `vercel.json` — Verify CORS is production domain:
-```json
-"Access-Control-Allow-Origin": "https://payments.august.style"
-```
-
-**File**: `src/lib/api.ts` — Verify API URL is production:
-```typescript
-return 'https://freelance-payments-neon.vercel.app';
-```
-
----
-
-## Step 5: Commit and Deploy
-
-```bash
-cd ~/Development/freelance-payments
-
-git add .
-git commit -m "Go live: Switch to production Stripe keys, clean up test data"
-git push origin freelance-payments
-```
-
----
-
-## Step 6: Post-Launch Verification
-
-- [ ] GitHub Actions `admin-push.yml` runs successfully
-- [ ] GitHub Pages deploys to `dev.payments.august.style`
-- [ ] Vercel deploys API endpoints
-- [ ] HTTPS certificate is valid
-- [ ] Create first real client job
-- [ ] Verify Stripe products created in Live mode
-- [ ] Monitor first real payment
-
----
-
-## Rollback Plan
-
-If something goes wrong:
-
-1. **Stripe**: Switch back to test mode in Dashboard
-2. **Vercel**: Revert environment variables to test keys
-3. **Redeploy**: Trigger new Vercel deployment
-4. **Investigate**: Check logs, fix issue
-5. **Retry**: Go through launch steps again
+# Part 3: Transition to Live Production -- **Removed section; see `/freelance-payments/assets/docs/v6/GO_LIVE_SETUP_DEV.md` if needed**
 
 ---
 

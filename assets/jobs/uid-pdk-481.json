@@ -1,0 +1,171 @@
+{
+  "project": "AI Facilitated Check-in App on iOS",
+  "contract": {
+    "work_start": "2026-02-01",
+    "work_end": "2026-04-01",
+    "legal_jurisdiction": "Massachusetts",
+    "maintenance_period_months": 3,
+    "maintenance_monthly_fee": 150,
+    "signatures": {
+      "contractor": {
+        "legal_name": "Sean August Horvath",
+        "signed_date": null
+      },
+      "client": {
+        "legal_name": null,
+        "signed_date": null
+      }
+    }
+  },
+  "docs": {
+    "contract": {
+      "id": null,
+      "pdf": null,
+      "file_id": null,
+      "url": null,
+      "sha256": null,
+      "created": null
+    },
+    "invoice": {
+      "id": null,
+      "pdf": null,
+      "file_id": null,
+      "url": null,
+      "sha256": null,
+      "created": null
+    },
+    "balance": {
+      "id": null,
+      "pdf": null,
+      "file_id": null,
+      "url": null,
+      "sha256": null,
+      "created": null
+    }
+  },
+  "state": {
+    "objects": {
+      "created": null,
+      "product": null,
+      "price_1": null,
+      "price_2": null,
+      "customer": null,
+      "coupon": null
+    },
+    "client_status": {
+      "logged_in": null,
+      "contract_signed": null,
+      "invoice": null,
+      "payment_1": null,
+      "balance": null,
+      "payment_2": null
+    }
+  },
+  "product": {
+    "name": "iOS App Development",
+    "active": true,
+    "description": "Development and launch of iOS app for client company to facilitate check-in process.",
+    "id": "uid-pdk-481",
+    "login_name": "Donovan",
+    "login_keyword": "check-in-ai-app",
+    "service_usd": 11325000,
+    "total_payments": 2,
+    "discount_usd": 132500,
+    "type": "service",
+    "unit_label": "Payment"
+  },
+  "customer": {
+    "name": "Patrick Donovan",
+    "business": "Patrick Donovan",
+    "title": "CEO",
+    "email": "patrick@patrickdonovan.com",
+    "phone": "123-456-7890",
+    "id": "cus-pdk-481",
+    "address": {
+      "city": "Boston",
+      "line1": "123 Main St",
+      "state": "MA",
+      "postal_code": "02111",
+      "country": "US"
+    }
+  },
+  "coupon": {
+    "amount_off": 132500,
+    "applies_to": {
+      "products": [
+        "uid-pdk-481"
+      ]
+    },
+    "currency": "usd",
+    "duration": "once",
+    "id": "cou-pdk-481",
+    "max_redemptions": 1,
+    "name": "DONOVAN-DISCOUNT"
+  },
+  "price1": {
+    "count": 1,
+    "currency": "usd",
+    "unit_amount": 5662500,
+    "active": true,
+    "billing_scheme": "per_unit",
+    "pay_by": "start of work",
+    "nickname": "Initial Payment",
+    "product": {
+      "products": [
+        "uid-pdk-481"
+      ]
+    },
+    "id": ""
+  },
+  "price2": {
+    "count": 2,
+    "currency": "usd",
+    "unit_amount": 5662500,
+    "active": true,
+    "billing_scheme": "per_unit",
+    "pay_by": "before project launch",
+    "pay_days": 14,
+    "late_fee": 10000,
+    "nickname": "Final Payment",
+    "product": {
+      "products": [
+        "uid-pdk-481"
+      ]
+    },
+    "id": ""
+  },
+  "checkout_session_1": {
+    "discounts": [
+      {
+        "coupon": "cou-pdk-481"
+      }
+    ],
+    "line_items": [
+      {
+        "price": "",
+        "quantity": 1
+      }
+    ],
+    "mode": "payment",
+    "return_url": "https://dev.payments.august.style/uid-pdk-481?session_id={CHECKOUT_SESSION_ID}",
+    "ui_mode": "custom"
+  },
+  "checkout_session_2": {
+    "discounts": [
+      {
+        "coupon": null
+      }
+    ],
+    "line_items": [
+      {
+        "price": "",
+        "quantity": 1
+      }
+    ],
+    "mode": "payment",
+    "return_url": "https://dev.payments.august.style/uid-pdk-481?session_id={CHECKOUT_SESSION_ID}",
+    "ui_mode": "custom"
+  },
+  "project_scope_summary": "Development and launch of iOS app for client company to facilitate check-in process.",
+  "project_scope_full": "Development and launch of iOS app for client company to facilitate check-in process."
+}
