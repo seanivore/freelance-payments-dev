@@ -22,7 +22,7 @@
             "id": "kon-unc-480",
             "pdf": "assets/pdf/contract/kon-unc-480.pdf",
             "file_id": "15dxBArDQi3sLAfEFV9Qbs3NmFOatiOmPTu7Ci46Wqgg",
-            "url": "https://payments.august.style/assets/pdf/contract/kon-unc-480.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/contract/kon-unc-480.pdf",
             "sha256": "ff0ac8a6bdf7a5e1cc5ccc0ed8638cc23ee474813a438c76c384e7ccb1cf0db1",
             "created": "2026-01-17T15:07:48.833718Z"
         },
@@ -30,7 +30,7 @@
             "id": "inv-unc-480",
             "pdf": "assets/pdf/invoice/inv-unc-480.pdf",
             "file_id": "1k7qVwSq5GIJOitm4qf6lpEuuI9Xtj_Q53cCI3X87884",
-            "url": "https://payments.august.style/assets/pdf/invoice/inv-unc-480.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-unc-480.pdf",
             "sha256": "82a021937933121b8343b6e2087438a5f9dcbe6d7e82b235313724d74bc95472",
             "created": "2026-01-17T15:07:53.230026Z"
         },
@@ -38,7 +38,7 @@
             "id": "bal-unc-480",
             "pdf": "assets/pdf/balance/bal-unc-480.pdf",
             "file_id": "1_vIf4w3UaaMFnhc-kDf7FigytPK3cqgs-QyjYy0d8xM",
-            "url": "https://payments.august.style/assets/pdf/balance/bal-unc-480.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/balance/bal-unc-480.pdf",
             "sha256": "d1920c1b1469a299c01274b91ed44e063c9a56c50b1fb49384f0580ba1a5f47a",
             "created": "2026-01-17T15:07:57.737991Z"
         }
@@ -147,7 +147,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-unc-480?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-unc-480?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "checkout_session_2": {
@@ -163,7 +163,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-unc-480?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-unc-480?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "project_scope_summary": "A marketing campaign on social media for AI driven ride-hailing services launch.",

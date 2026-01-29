@@ -27,7 +27,7 @@
             "id": "kon-tst-001",
             "pdf": "assets/pdf/contract/kon-tst-001.pdf",
             "file_id": "1Sgk8AJMo8G3pvDXMNnxknUoNsBrvPCkJeHHuLTCaGic",
-            "url": "https://payments.august.style/assets/pdf/contract/kon-tst-001.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/contract/kon-tst-001.pdf",
             "sha256": "2b1ecb390e125a16eac7b509b0997b9c6c102687ac8f54e6b650b91f887c0369",
             "created": "2026-01-17T07:37:29.993712Z"
         },
@@ -35,7 +35,7 @@
             "id": "inv-tst-001",
             "pdf": "assets/pdf/invoice/inv-tst-001.pdf",
             "file_id": "1_XYQQaTMQPF6wjVIT7RETtMTq1wIdmbBw9ivlI2ULnw",
-            "url": "https://payments.august.style/assets/pdf/invoice/inv-tst-001.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-tst-001.pdf",
             "sha256": "5ede02c626864fc2f290a63aa7feab19a31c07f9d4bfdaece1f32ed26791fffe",
             "created": "2026-01-17T07:37:35.835029Z"
         },
@@ -43,7 +43,7 @@
             "id": "bal-tst-001",
             "pdf": "assets/pdf/balance/bal-tst-001.pdf",
             "file_id": "1lr_gsccZanW3ZpiWoZ-lupxXbqkq9EAbA1YxcHh_3Sc",
-            "url": "https://payments.august.style/assets/pdf/balance/bal-tst-001.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/balance/bal-tst-001.pdf",
             "sha256": "0c2e6a3a0dd3eba77fe1b8489a47e564ffd80634369ae49869d521d84517b9f6",
             "created": "2026-01-17T07:37:40.943566Z"
         }
@@ -163,7 +163,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-tst-001?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-tst-001?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "checkout_session_2": {
@@ -179,7 +179,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-tst-001?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-tst-001?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "project_scope_summary": "This is a test job JSON file.",

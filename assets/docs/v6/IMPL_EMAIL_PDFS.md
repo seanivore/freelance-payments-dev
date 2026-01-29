@@ -59,7 +59,7 @@ Your signed contract is attached to this email. Please save it for your records.
 
 Next Steps:
 1. Review the attached invoice
-2. Make your first payment at: https://payments.august.style
+2. Make your first payment at: https://dev.payments.august.style
    - Last Name: {{product.login_name}}
    - Keyword: {{product.login_keyword}}
 
@@ -96,7 +96,7 @@ Payment Details:
 - Amount Due: {{price1.unit_amount}}
 - Due By: {{contract.work_start}}
 
-Make your payment at: https://payments.august.style
+Make your payment at: https://dev.payments.august.style
 - Last Name: {{product.login_name}}
 - Keyword: {{product.login_keyword}}
 
@@ -132,8 +132,8 @@ Payment Details:
 - Project: {{project}}
 
 Your Documents:
-- Contract: https://payments.august.style/{{docs.contract.signed_pdf}}
-- Invoice: https://payments.august.style/{{docs.invoice.pdf}}
+- Contract: https://dev.payments.august.style/{{docs.contract.signed_pdf}}
+- Invoice: https://dev.payments.august.style/{{docs.invoice.pdf}}
 
 What's Next:
 Work begins on {{contract.work_start}}. You'll receive an email when your final payment is due (approximately {{contract.work_end}}).
@@ -169,7 +169,7 @@ Payment Details:
 - Amount Due: {{price2.unit_amount}}
 - Due By: {{price2.pay_days}} days from today
 
-Make your final payment at: https://payments.august.style
+Make your final payment at: https://dev.payments.august.style
 - Last Name: {{product.login_name}}
 - Keyword: {{product.login_keyword}}
 
@@ -456,7 +456,7 @@ Your signed contract is attached to this email. Please save it for your records.
 
 Next Steps:
 1. Review the attached invoice
-2. Make your first payment at: https://payments.august.style
+2. Make your first payment at: https://dev.payments.august.style
    - Last Name: {{product.login_name}}
    - Keyword: {{product.login_keyword}}
 
@@ -480,7 +480,7 @@ Payment Details:
 - Amount Due: {{price1.unit_amount}}
 - Due By: {{contract.work_start}}
 
-Make your payment at: https://payments.august.style
+Make your payment at: https://dev.payments.august.style
 - Last Name: {{product.login_name}}
 - Keyword: {{product.login_keyword}}
 
@@ -503,8 +503,8 @@ Payment Details:
 - Project: {{project}}
 
 Your Documents:
-- Contract: https://payments.august.style/{{docs.contract.signed_pdf}}
-- Invoice: https://payments.august.style/{{docs.invoice.pdf}}
+- Contract: https://dev.payments.august.style/{{docs.contract.signed_pdf}}
+- Invoice: https://dev.payments.august.style/{{docs.invoice.pdf}}
 
 What's Next:
 Work begins on {{contract.work_start}}. You'll receive an email when your final payment is due (approximately {{contract.work_end}}).
@@ -528,7 +528,7 @@ Payment Details:
 - Amount Due: {{price2.unit_amount}}
 - Due By: {{price2.pay_days}} days from today
 
-Make your final payment at: https://payments.august.style
+Make your final payment at: https://dev.payments.august.style
 - Last Name: {{product.login_name}}
 - Keyword: {{product.login_keyword}}
 

@@ -1,15 +1,15 @@
 {
-  "project": "Another Test Job",
+  "project": "Test Project",
   "contract": {
-    "work_start": "2026-01-17",
-    "work_end": "2026-01-17",
+    "work_start": null,
+    "work_end": null,
     "legal_jurisdiction": "Massachusetts",
     "maintenance_period_months": 3,
     "maintenance_monthly_fee": 150,
     "signatures": {
       "contractor": {
         "legal_name": "Sean August Horvath",
-        "signed_date": "2026-01-17T09:12:51.679232Z"
+        "signed_date": null
       },
       "client": {
         "legal_name": null,
@@ -45,12 +45,12 @@
   },
   "state": {
     "objects": {
-      "created": "2026-01-17T09:12:51.679232Z",
-      "product": "uid-tst-002",
-      "price_1": "price_1SqVYt9fljwH26CPSYFbwyoD",
-      "price_2": "price_1SqVYu9fljwH26CPShayJrpx",
-      "customer": "cus-tst-002",
-      "coupon": "cou-tst-002"
+      "created": null,
+      "product": null,
+      "price_1": null,
+      "price_2": null,
+      "customer": null,
+      "coupon": null
     },
     "client_status": {
       "logged_in": null,
@@ -62,65 +62,65 @@
     }
   },
   "product": {
-    "name": "New Digital Product",
+    "name": null,
     "active": true,
-    "description": "Details about the new digital product deliverable.",
-    "id": "uid-tst-002",
-    "login_name": "Product",
-    "login_keyword": "test-me",
-    "service_usd": 2350000,
+    "description": null,
+    "id": "uid-jza-440",
+    "login_name": null,
+    "login_keyword": null,
+    "service_usd": 50000,
     "total_payments": 2,
-    "discount_usd": 50000,
+    "discount_usd": 5000,
     "type": "service",
     "unit_label": "Payment"
   },
   "customer": {
-    "name": "Jamie Peterson",
-    "business": "Peterson Robotics, Inc.",
-    "title": "Robotics Engineer",
-    "email": "jamie@petersonrobotics.com",
-    "phone": "817-555-5555",
-    "id": "cus-tst-002",
+    "name": "Test Client",
+    "business": null,
+    "title": null,
+    "email": null,
+    "phone": null,
+    "id": "cus-jza-440",
     "address": {
-      "city": "Round Rock",
-      "line1": "123 Main St",
-      "state": "TX",
-      "postal_code": "78664",
-      "country": "US"
+      "city": null,
+      "line1": null,
+      "state": null,
+      "postal_code": null,
+      "country": null
     }
   },
   "coupon": {
-    "amount_off": 50000,
+    "amount_off": 5000,
     "applies_to": {
       "products": [
-        "uid-tst-002"
+        "uid-jza-440"
       ]
     },
     "currency": "usd",
     "duration": "once",
-    "id": "cou-tst-002",
+    "id": "cou-jza-440",
     "max_redemptions": 1,
-    "name": "COUPON-TEST"
+    "name": null
   },
   "price1": {
     "count": 1,
     "currency": "usd",
-    "unit_amount": "1175000",
+    "unit_amount": 25000,
     "active": true,
     "billing_scheme": "per_unit",
     "pay_by": "start of work",
     "nickname": "Initial Payment",
     "product": {
       "products": [
-        "uid-tst-002"
+        "uid-jza-440"
       ]
     },
-    "id": "price_1SqVYt9fljwH26CPSYFbwyoD"
+    "id": ""
   },
   "price2": {
     "count": 2,
     "currency": "usd",
-    "unit_amount": "1175000",
+    "unit_amount": 25000,
     "active": true,
     "billing_scheme": "per_unit",
     "pay_by": "before project launch",
@@ -129,25 +129,25 @@
     "nickname": "Final Payment",
     "product": {
       "products": [
-        "uid-tst-002"
+        "uid-jza-440"
       ]
     },
-    "id": "price_1SqVYu9fljwH26CPShayJrpx"
+    "id": ""
   },
   "checkout_session_1": {
     "discounts": [
       {
-        "coupon": "cou-tst-002"
+        "coupon": "cou-jza-440"
       }
     ],
     "line_items": [
       {
-        "price": "price_1SqVYt9fljwH26CPSYFbwyoD",
+        "price": "",
         "quantity": 1
       }
     ],
     "mode": "payment",
-    "return_url": "https://dev.payments.august.style/uid-tst-002?session_id={CHECKOUT_SESSION_ID}",
+    "return_url": "https://dev.payments.august.style/uid-jza-440?session_id={CHECKOUT_SESSION_ID}",
     "ui_mode": "custom"
   },
   "checkout_session_2": {
@@ -158,14 +158,14 @@
     ],
     "line_items": [
       {
-        "price": "price_1SqVYu9fljwH26CPShayJrpx",
+        "price": "",
         "quantity": 1
       }
     ],
     "mode": "payment",
-    "return_url": "https://dev.payments.august.style/uid-tst-002?session_id={CHECKOUT_SESSION_ID}",
+    "return_url": "https://dev.payments.august.style/uid-jza-440?session_id={CHECKOUT_SESSION_ID}",
     "ui_mode": "custom"
   },
-  "project_scope_summary": "This is a test job JSON file.",
-  "project_scope_full": "This is a test job JSON file. It is used to test the system. This value on the JSON file is about the project scope. It is much longer than the summary."
+  "project_scope_summary": null,
+  "project_scope_full": null
 }

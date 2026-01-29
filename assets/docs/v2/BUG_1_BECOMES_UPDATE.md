@@ -362,9 +362,9 @@ Previously planned automation "simplification" and modular rebuild led to convol
 
   * **To tell payments website what page or payment to load for the client**
 
-    - "initial_payment_intent" is "succeeded" --> User visiting `payments.august.style` --> checkout_session for "uid-xxx-xxx-2" 
-    - "client_status" is "logged_in" --> next login to `payments.august.style` --> shows welcome back instead of onboarding 
-    - "client_status" viewed both docs and downloaded --> next `payments.august.style` login --> straight to page anchor for signing 
+    - "initial_payment_intent" is "succeeded" --> User visiting `dev.payments.august.style` --> checkout_session for "uid-xxx-xxx-2" 
+    - "client_status" is "logged_in" --> next login to `dev.payments.august.style` --> shows welcome back instead of onboarding 
+    - "client_status" viewed both docs and downloaded --> next `dev.payments.august.style` login --> straight to page anchor for signing 
 
   * **Each sub-section represents an event's trigger that starts an automation's action** 
 
@@ -423,7 +423,7 @@ I see the following on `assets/js/checkout-controller.js`
   async function createPaymentIntent(jobData, price) {
     // Vercel API endpoint (backend serverless functions)
     // Frontend is on GitHub Pages, API is on Vercel
-    const serverlessEndpoint = 'https://freelance-payments-neon.vercel.app/api/create-payment-intent';
+    const serverlessEndpoint = 'https://freelance-payments-dev.vercel.app/api/create-payment-intent';
 ``` 
 
 And I do remember originally saying we'd need the serverless function for frontend triggered "signed contract" or just "viewed but didn't sign contract" — since both of those would be needed for state management if they left and came back after either of those it would know to route them to payment-1 or to the contract to sign it. 
@@ -894,7 +894,7 @@ session = stripe.checkout.Session.create(
   discounts=[{"coupon": "uid-amx-856-coupon"}],
   line_items=[{"price": "uid-amx-856-1", "quantity": 1}],
   mode="payment",
-  return_url="https://payments.august.style/payment-success.html",
+  return_url="https://dev.payments.august.style/payment-success.html",
   submit_type="pay",
   ui_mode="embedded",
 )
@@ -1006,7 +1006,7 @@ session = stripe.checkout.Session.create(
   },
   "recovered_from": null,
   "redirect_on_completion": "always",
-  "return_url": "https://payments.august.style/payment-success.html",
+  "return_url": "https://dev.payments.august.style/payment-success.html",
   "saved_payment_method_options": {
     "allow_redisplay_filters": [
       "always"
@@ -1056,7 +1056,7 @@ session = stripe.checkout.Session.create(
   customer_creation="always",
   mode="payment",
   redirect_on_completion="always",
-  return_url="https://payments.august.style/payment-success.html",
+  return_url="https://dev.payments.august.style/payment-success.html",
   submit_type="pay",
   ui_mode="embedded",
   custom_text={"after_submit": {"message": "Time to create magic 💎"}},
@@ -1071,7 +1071,7 @@ session = stripe.checkout.Session.create(
   + Bash with Stripe CLI can do the same. I ran this in the Sandbox Workspace 
 
 ```bash
-stripe checkout sessions create --automatic-tax.enabled=true --billing-address-collection="required" --branding-settings.font-family="noto_sans" --branding-settings.background-color="#1f1f1f" --branding-settings.border-style="pill" --branding-settings.button-color="#9C528B" --branding-settings.display-name="august.style designs" --client-reference-id="uid-amx-856-client" --currency="usd" --customer-creation="always" --mode="payment" --redirect-on-completion="always" --return-url="https://payments.august.style/payment-success.html" --submit-type="pay" --ui-mode="embedded" -d "automatic_tax[liability][type]=self" -d "custom_text[after_submit][message]=Time to create magic 💎" -d "line_items[0][price]=uid-amx-856-2" -d "line_items[0][quantity]=1" -d "name_collection[individual][enabled]=true" -d "name_collection[business][enabled]=true" -d "name_collection[business][optional]=true"
+stripe checkout sessions create --automatic-tax.enabled=true --billing-address-collection="required" --branding-settings.font-family="noto_sans" --branding-settings.background-color="#1f1f1f" --branding-settings.border-style="pill" --branding-settings.button-color="#9C528B" --branding-settings.display-name="august.style designs" --client-reference-id="uid-amx-856-client" --currency="usd" --customer-creation="always" --mode="payment" --redirect-on-completion="always" --return-url="https://dev.payments.august.style/payment-success.html" --submit-type="pay" --ui-mode="embedded" -d "automatic_tax[liability][type]=self" -d "custom_text[after_submit][message]=Time to create magic 💎" -d "line_items[0][price]=uid-amx-856-2" -d "line_items[0][quantity]=1" -d "name_collection[individual][enabled]=true" -d "name_collection[business][enabled]=true" -d "name_collection[business][optional]=true"
 ```
 
 ```json
@@ -1184,7 +1184,7 @@ stripe checkout sessions create --automatic-tax.enabled=true --billing-address-c
   },
   "recovered_from": null,
   "redirect_on_completion": "always",
-  "return_url": "https://payments.august.style/payment-success.html",
+  "return_url": "https://dev.payments.august.style/payment-success.html",
   "saved_payment_method_options": {
     "allow_redisplay_filters": [
       "always"

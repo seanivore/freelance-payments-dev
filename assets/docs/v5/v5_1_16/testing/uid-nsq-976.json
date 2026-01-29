@@ -22,7 +22,7 @@
             "id": "kon-nsq-976",
             "pdf": "assets/pdf/contract/kon-nsq-976.pdf",
             "file_id": "1JVhfb16RNQtqUD0pQL8_imhe9fXp9DTHnet1wUSEl6U",
-            "url": "https://payments.august.style/assets/pdf/contract/kon-nsq-976.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/contract/kon-nsq-976.pdf",
             "sha256": "93283a7ae3b25de6801ee56b4f1481c792f31caae203dacba76e8b7f5b89c297",
             "created": "2026-01-17T14:01:12.876455Z"
         },
@@ -30,7 +30,7 @@
             "id": "inv-nsq-976",
             "pdf": "assets/pdf/invoice/inv-nsq-976.pdf",
             "file_id": "1jyKGlPWH7WbXMhzSULs9KBXOkrhU3Kc4HlCWPBSWZDw",
-            "url": "https://payments.august.style/assets/pdf/invoice/inv-nsq-976.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-nsq-976.pdf",
             "sha256": "19ac7afd3e743f060e931d48737b1eb7918affbc469ae2f7abe1da16d67ee2d6",
             "created": "2026-01-17T14:01:17.538978Z"
         },
@@ -38,7 +38,7 @@
             "id": "bal-nsq-976",
             "pdf": "assets/pdf/balance/bal-nsq-976.pdf",
             "file_id": "1zxHE6b-Pk-xyIPxN93Znv5oT0Bj6lQtQ-rRwaOr0e0g",
-            "url": "https://payments.august.style/assets/pdf/balance/bal-nsq-976.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/balance/bal-nsq-976.pdf",
             "sha256": "75280866bf87719b6fbd577238346df4a895a3b19e15d4758fc5b34152a7c534",
             "created": "2026-01-17T14:01:23.315767Z"
         }
@@ -147,7 +147,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-nsq-976?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-nsq-976?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "checkout_session_2": {
@@ -163,7 +163,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-nsq-976?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-nsq-976?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "project_scope_summary": "Jameson needs all social media platforms up and running ASAP.",

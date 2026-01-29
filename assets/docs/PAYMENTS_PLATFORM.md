@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-A **freelance payment collection micro-site** (`payments.august.style`) that automates contract generation, invoice creation, payment processing, and document management. Built with React 18 + TypeScript + Vite, deployed on Vercel (static frontend + serverless backend), using JSON files as the single source of truth (no database).
+A **freelance payment collection micro-site** (`dev.payments.august.style`) that automates contract generation, invoice creation, payment processing, and document management. Built with React 18 + TypeScript + Vite, deployed on Vercel (static frontend + serverless backend), using JSON files as the single source of truth (no database).
 
 **Key Innovation**: Hybrid architecture combining static hosting (GitHub Pages/Vercel) with runtime backend (Vercel serverless functions), using a 404-redirect trick for SPA routing on static hosts.
 
@@ -250,7 +250,7 @@ setData(prev => ({
 **`api/create-checkout-session.js`** - Stripe Checkout Session Creation
 - Creates Stripe checkout session on-demand with `ui_mode: 'custom'`
 - Returns `client_secret` for Stripe Elements
-- Sets `return_url` template: `https://payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
+- Sets `return_url` template: `https://dev.payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
 - Includes `payment_number` in metadata for routing logic
 
 **`api/track-event.js`** - Event Tracking Endpoint (Single Workflow Dispatcher)
@@ -592,7 +592,7 @@ POST /api/track-event
 
 ### Return URL Handling
 
-**Format**: `https://payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
+**Format**: `https://dev.payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
 
 **Process** (`src/App.tsx`):
 1. Check for `session_id` query param on mount

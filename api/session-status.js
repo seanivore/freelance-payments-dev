@@ -16,7 +16,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default async (req, res) => {
   // CORS configuration - allow requests from frontend domain
   const allowedOrigins = [
-    'https://payments.august.style',
+    'https://dev.payments.august.style',
     'http://localhost:5173', // Vite dev server
     'http://localhost:3000'  // Common dev port
   ];

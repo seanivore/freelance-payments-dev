@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-A **freelance payment collection micro-site** (`payments.august.style`) that automates contract generation, invoice creation, payment processing, and document management.
+A **freelance payment collection micro-site** (`dev.payments.august.style`) that automates contract generation, invoice creation, payment processing, and document management.
 
 **Key Pivot in v5**: The system moved from a loose collection of Vanilla JS scripts to a structured **React 18 Single Page Application (SPA)** built with **Vite**. This ensures type safety, component reusability, and robust state management via the "FluxGate" pattern.
 
@@ -316,7 +316,7 @@ _Updated 2026-01-13 for v5 schema_
             "id": null, // artifact, 'kon-xxx-xxx'
             "pdf": null, // artifact, 'assets/pdf/contract/kon-xxx-xxx.pdf'
             "file_id": null, // artifact, 'random character string' from process
-            "url": null, // artifact, 'payments.august.style' PDF location
+            "url": null, // artifact, 'dev.payments.august.style' PDF location
             "sha256": null, // artifact, 'random character string' from process
             "created": null // artifact, ISO timestamp confirmation
         },
@@ -441,7 +441,7 @@ _Updated 2026-01-13 for v5 schema_
             }
         ],
         "mode": "payment", // provided
-        "return_url": "https://payments.august.style/[uid-xxx-xxx]#completion-1", // required, update [uid-xxx-xxx] with actual product.id
+        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]#completion-1", // required, update [uid-xxx-xxx] with actual product.id
         "ui_mode": "custom" // provided
     },
     "checkout_session_2": { // facilitates on-demand price2 checkout session initialization
@@ -457,7 +457,7 @@ _Updated 2026-01-13 for v5 schema_
             }
         ],
         "mode": "payment", // provided
-        "return_url": "https://payments.august.style/[uid-xxx-xxx]#completion-2", // required, update [uid-xxx-xxx] with actual product.id
+        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]#completion-2", // required, update [uid-xxx-xxx] with actual product.id
         "ui_mode": "custom" // provided
     },
     "project_scope_summary": null, // required, summary of deliverable

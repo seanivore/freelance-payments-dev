@@ -291,7 +291,7 @@ GET
 
 --Console during session pasted below--
 
-  GET https://payments.august.style/uid-qee-576?session_id=cs_test_a1FqWycDA7Bjmv2Kbqkgi8mVOEA3pEhQNoQ198qmth7orUHVw2O88QxIFi 404 (Not Found)
+  GET https://dev.payments.august.style/uid-qee-576?session_id=cs_test_a1FqWycDA7Bjmv2Kbqkgi8mVOEA3pEhQNoQ198qmth7orUHVw2O88QxIFi 404 (Not Found)
 (anonymous) @ js.stripe.com/clover/stripe.js:1
 job-BIx_agM0.js:50 Vite: job.tsx loaded
 job-BIx_agM0.js:50 Detected session_id: cs_test_a1FqWycDA7Bjmv2Kbqkgi8mVOEA3pEhQNoQ198qmth7orUHVw2O88QxIFi (from URL)
@@ -352,7 +352,7 @@ Vercel log for this workflow: `assets/docs/v5/testing/test-log-01-uid-bnp-832-ve
 
 --Console from return session--
 
-  GET https://payments.august.style/uid-bnp-832?session_id=cs_test_a1O0DvgqRP9gcu7cjhXBOH0Z74WmjxOHDcLsH4HNORv8q5uP4ly6dW1EsS 404 (Not Found)
+  GET https://dev.payments.august.style/uid-bnp-832?session_id=cs_test_a1O0DvgqRP9gcu7cjhXBOH0Z74WmjxOHDcLsH4HNORv8q5uP4ly6dW1EsS 404 (Not Found)
 (anonymous) @ js.stripe.com/clover/stripe.js:1
 o @ js.stripe.com/clover/stripe.js:1
 (anonymous) @ js.stripe.com/v3/fin…a9cf67e9caca22.js:1
@@ -436,7 +436,7 @@ NOTE: AI please review log_1 bug fixes because we had these issues for the user 
 
 FIRST SESSION
 
-  GET https://payments.august.style/uid-oac-784?session_id=cs_test_a1cXNvwx7ln8Gzw5gNb8pLC6h6T3F4qsV5ZFKxCMxdo5E8NehxYZAyH42Z 404 (Not Found)
+  GET https://dev.payments.august.style/uid-oac-784?session_id=cs_test_a1cXNvwx7ln8Gzw5gNb8pLC6h6T3F4qsV5ZFKxCMxdo5E8NehxYZAyH42Z 404 (Not Found)
 (anonymous) @ js.stripe.com/clover/stripe.js:1
 o @ js.stripe.com/clover/stripe.js:1
 (anonymous) @ js.stripe.com/v3/fin…a9cf67e9caca22.js:1
@@ -483,7 +483,7 @@ job-BIx_agM0.js:50 ✅ Flushed 2 event(s) to API
 
 SESSION 2 
 
-  GET https://payments.august.style/uid-oac-784 404 (Not Found)
+  GET https://dev.payments.august.style/uid-oac-784 404 (Not Found)
 j @ assets/main-ERqGnDh0.js:1
 await in j
 pv @ index-CwGdK3tu.js:8
@@ -510,7 +510,7 @@ job-BIx_agM0.js:49 Page 1 rendered successfully
 
 SESSION 3 
 
-  GET https://payments.august.style/uid-oac-784 404 (Not Found)
+  GET https://dev.payments.august.style/uid-oac-784 404 (Not Found)
 j @ assets/main-ERqGnDh0.js:1
 await in j
 pv @ index-CwGdK3tu.js:8
@@ -569,7 +569,7 @@ TEST STATE: Completed through payment_1 with accurate events recorded to JSON
 
 --console logs from session--
 
-  GET https://payments.august.style/uid-qee-576?session_id=cs_test_a1yWJBrlegr7kEXpvYZH3meNRCca7J3ZBRa3ujVMcwg20puHZHjiuEBx68 404 (Not Found)
+  GET https://dev.payments.august.style/uid-qee-576?session_id=cs_test_a1yWJBrlegr7kEXpvYZH3meNRCca7J3ZBRa3ujVMcwg20puHZHjiuEBx68 404 (Not Found)
 (anonymous) @ js.stripe.com/clover/stripe.js:1
 o @ js.stripe.com/clover/stripe.js:1
 (anonymous) @ js.stripe.com/v3/fin…a9cf67e9caca22.js:1

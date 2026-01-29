@@ -3,7 +3,7 @@
 
 ## Objective 
 
-- Acquire experience building Stripe custom integrations for client projects by creating a reusable micro-site at the subdomain `payments.august.style` that is designed to allow my freelance clients to access payment processing by entering their invoice number. 
+- Acquire experience building Stripe custom integrations for client projects by creating a reusable micro-site at the subdomain `dev.payments.august.style` that is designed to allow my freelance clients to access payment processing by entering their invoice number. 
 
 ### Overview 
 

@@ -29,7 +29,7 @@ This document provides a complete, sequential guide for:
 │                                                                 │
 │  Repo: freelance-payments                                       │
 │  Branch: freelance-payments                                     │
-│  Frontend: payments.august.style (GitHub Pages)                 │
+│  Frontend: dev.payments.august.style (GitHub Pages)                 │
 │  Backend: freelance-payments-neon.vercel.app (Vercel)           │
 │  Stripe: Live keys (sk_live_*, pk_live_*)                       │
 │  Data: Real client JSON files                                   │
@@ -457,7 +457,7 @@ rm assets/docs/v6/PAYMENTS_LOGIN_SPEC.md
 
 **File**: `CNAME`
 ```
-payments.august.style
+dev.payments.august.style
 ```
 
 **File**: `vercel.json` — Verify CORS is production domain:
@@ -487,7 +487,7 @@ git push origin freelance-payments
 ## Step 6: Post-Launch Verification
 
 - [ ] GitHub Actions `admin-push.yml` runs successfully
-- [ ] GitHub Pages deploys to `payments.august.style`
+- [ ] GitHub Pages deploys to `dev.payments.august.style`
 - [ ] Vercel deploys API endpoints
 - [ ] HTTPS certificate is valid
 - [ ] Create first real client job
@@ -621,12 +621,12 @@ cp -r ../freelance-payments-dev/assets/scripts ./assets/
 
 ```bash
 # Restore CNAME (should not have been overwritten, but verify)
-echo "payments.august.style" > CNAME
+echo "dev.payments.august.style" > CNAME
 ```
 
 **File**: `vercel.json` — Verify CORS is production domain:
 ```json
-"Access-Control-Allow-Origin": "https://payments.august.style"
+"Access-Control-Allow-Origin": "https://dev.payments.august.style"
 ```
 
 **File**: `src/lib/api.ts` — Restore production API URL:

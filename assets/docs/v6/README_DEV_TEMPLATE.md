@@ -15,7 +15,7 @@ This is the **development repository** for the freelance payments platform. All 
 | Stripe Dashboard | https://dashboard.stripe.com/test |
 
 **Production** (do not use for development):
-- Frontend: https://payments.august.style
+- Frontend: https://dev.payments.august.style
 - Repo: https://github.com/seanivore/freelance-payments
 
 ---

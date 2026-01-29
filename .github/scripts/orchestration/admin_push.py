@@ -673,7 +673,7 @@ def validate_google_token():
     client_secret = os.getenv('GOOGLE_CLIENT_SECRET')
     
     if not (refresh_token and client_id and client_secret):
-        auth_url = "https://freelance-payments-neon.vercel.app/api/google/auth"
+        auth_url = "https://freelance-payments-dev.vercel.app/api/google/auth"
         raise ValueError(
             f"GOOGLE_REFRESH_TOKEN, GOOGLE_CLIENT_ID, and GOOGLE_CLIENT_SECRET environment variables must be set.\n"
             f"To get a new refresh token:\n"
@@ -698,7 +698,7 @@ def validate_google_token():
         creds.refresh(Request())
         return True
     except Exception as e:
-        auth_url = "https://freelance-payments-neon.vercel.app/api/google/auth"
+        auth_url = "https://freelance-payments-dev.vercel.app/api/google/auth"
         error_msg = str(e)
         if 'invalid_grant' in error_msg or 'expired' in error_msg.lower() or 'revoked' in error_msg.lower():
             raise ValueError(
@@ -1196,7 +1196,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                         'id': f'kon-{clean_id}',
                         'pdf': f'assets/pdf/contract/{pdf_filename}',
                         'file_id': result['doc_id'],
-                        'url': f'https://payments.august.style/assets/pdf/contract/{pdf_filename}',
+                        'url': f'https://dev.payments.august.style/assets/pdf/contract/{pdf_filename}',
                         'sha256': result['sha256'],
                         'created': datetime.now(UTC).isoformat().replace('+00:00', 'Z')
                     }
@@ -1223,7 +1223,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                         'id': f'inv-{clean_id}',
                         'pdf': f'assets/pdf/invoice/{pdf_filename}',
                         'file_id': result['doc_id'],
-                        'url': f'https://payments.august.style/assets/pdf/invoice/{pdf_filename}',
+                        'url': f'https://dev.payments.august.style/assets/pdf/invoice/{pdf_filename}',
                         'sha256': result['sha256'],
                         'created': datetime.now(UTC).isoformat().replace('+00:00', 'Z')
                     }
@@ -1266,7 +1266,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                             'id': f'bal-{clean_id}',
                             'pdf': f'assets/pdf/balance/{pdf_filename}',
                             'file_id': result['doc_id'],
-                            'url': f'https://payments.august.style/assets/pdf/balance/{pdf_filename}',
+                            'url': f'https://dev.payments.august.style/assets/pdf/balance/{pdf_filename}',
                             'sha256': result['sha256'],
                             'created': datetime.now(UTC).isoformat().replace('+00:00', 'Z')
                         }

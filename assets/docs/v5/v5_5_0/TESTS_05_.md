@@ -49,7 +49,7 @@
 ### Console Log
 
 ```plaintext
-  GET https://payments.august.style/uid-yvc-829 404 (Not Found)
+  GET https://dev.payments.august.style/uid-yvc-829 404 (Not Found)
 S @ assets/main-BgpHDfX3.js:1
 await in S
 pv @ index-C8XLP5Y7.js:8
@@ -176,7 +176,7 @@ Run if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
   - Console log
 
 ```plaintext
-uid-yvc-829:1  GET https://payments.august.style/uid-yvc-829 404 (Not Found)
+uid-yvc-829:1  GET https://dev.payments.august.style/uid-yvc-829 404 (Not Found)
 job-6Iq9Yn9s.js:59 Vite: job.tsx loaded
 job-6Iq9Yn9s.js:1 ✅ Loaded job data for uid-yvc-829: {logged_in: '2026-01-21T13:18:44.844Z', contract_signed: null, invoice: null, payment_1: null, balance: null, …}
 ```
@@ -190,7 +190,7 @@ job-6Iq9Yn9s.js:1 ✅ Loaded job data for uid-yvc-829: {logged_in: '2026-01-21T1
 - Console log
 
 ```plaintext
-  GET https://payments.august.style/uid-yvc-829 404 (Not Found)
+  GET https://dev.payments.august.style/uid-yvc-829 404 (Not Found)
 S @ assets/main-BgpHDfX3.js:1
 await in S
 pv @ index-C8XLP5Y7.js:8
@@ -360,7 +360,7 @@ Run git config --global user.name 'github-actions[bot]'
   - I was sent to the balance page as expected
 
 ```plaintext
-uid-yvc-829:1  GET https://payments.august.style/uid-yvc-829 404 (Not Found)
+uid-yvc-829:1  GET https://dev.payments.august.style/uid-yvc-829 404 (Not Found)
 job-6Iq9Yn9s.js:59 Vite: job.tsx loaded
 job-6Iq9Yn9s.js:1 ✅ Loaded job data for uid-yvc-829: {logged_in: '2026-01-21T13:18:44.844Z', contract_signed: '2026-01-24T05:56:14.936Z', invoice: '2026-01-24T08:43:56.069Z', payment_1: '2026-01-24T08:43:56.069Z', balance: null, …}
 ```
@@ -436,7 +436,7 @@ job-6Iq9Yn9s.js:1 ✅ Loaded job data for uid-yvc-829: {logged_in: '2026-01-21T1
   - When it sees that balance was completed, it should make API call to create checkout session and user should go directly to payment page
 
 ```plaintext
-  GET https://payments.august.style/uid-yvc-829 404 (Not Found)
+  GET https://dev.payments.august.style/uid-yvc-829 404 (Not Found)
 S @ assets/main-BgpHDfX3.js:1
 await in S
 pv @ index-C8XLP5Y7.js:8

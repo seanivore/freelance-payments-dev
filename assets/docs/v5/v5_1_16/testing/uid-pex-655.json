@@ -22,7 +22,7 @@
             "id": "kon-pex-655",
             "pdf": "assets/pdf/contract/kon-pex-655.pdf",
             "file_id": "1BbTAfoaywEw31cVXRLlUlZbiTjcFSHEDCSn-KINsh68",
-            "url": "https://payments.august.style/assets/pdf/contract/kon-pex-655.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/contract/kon-pex-655.pdf",
             "sha256": "89df4767ad8e01d77cf212095841e3c27cb2ed95245c6ea470bec8152ca8b693",
             "created": "2026-01-17T20:10:59.360231Z"
         },
@@ -30,7 +30,7 @@
             "id": "inv-pex-655",
             "pdf": "assets/pdf/invoice/inv-pex-655.pdf",
             "file_id": "1E1xQk3RHcAs6e4U7RHuIZ5rxMvqmQrSq5QyXqPynJ9U",
-            "url": "https://payments.august.style/assets/pdf/invoice/inv-pex-655.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-pex-655.pdf",
             "sha256": "8b21568db912dd17824742eb58108712bb0c2a969f3afcab9559ff36ad068251",
             "created": "2026-01-17T20:11:05.371746Z"
         },
@@ -38,7 +38,7 @@
             "id": "bal-pex-655",
             "pdf": "assets/pdf/balance/bal-pex-655.pdf",
             "file_id": "1bqh-neot72ywH7B-3-xg0sth6VLYU1bhpfqQqQLKFo4",
-            "url": "https://payments.august.style/assets/pdf/balance/bal-pex-655.pdf",
+            "url": "https://dev.payments.august.style/assets/pdf/balance/bal-pex-655.pdf",
             "sha256": "80ddc8263ab7b3afdcd0452bb7183ebd07909ee8598e6bb05d246b565537c415",
             "created": "2026-01-17T20:11:10.552710Z"
         }
@@ -147,7 +147,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-pex-655?complete=payment_1&session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-pex-655?complete=payment_1&session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "checkout_session_2": {
@@ -163,7 +163,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/uid-pex-655?complete=payment_2&session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://dev.payments.august.style/uid-pex-655?complete=payment_2&session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "project_scope_summary": "The client needs a website store for their candy business.",

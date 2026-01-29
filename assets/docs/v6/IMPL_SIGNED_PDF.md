@@ -262,7 +262,7 @@ if event_type == 'contract_signed':
         if success:
             # Update JSON with signed PDF path
             job_data['docs']['contract']['signed_pdf'] = signed_pdf
-            job_data['docs']['contract']['signed_url'] = f"https://payments.august.style/{signed_pdf}"
+            job_data['docs']['contract']['signed_url'] = f"https://dev.payments.august.style/{signed_pdf}"
             print(f"✅ Contract signed and PDF updated: {signed_pdf}")
 ```
 
@@ -277,8 +277,8 @@ Add new fields to track signed PDF:
       "id": "kon-fuk-259",
       "pdf": "assets/pdf/contract/kon-fuk-259.pdf",
       "signed_pdf": "assets/pdf/contract/kon-fuk-259-signed.pdf",  // NEW
-      "signed_url": "https://payments.august.style/assets/pdf/contract/kon-fuk-259-signed.pdf",  // NEW
-      "url": "https://payments.august.style/assets/pdf/contract/kon-fuk-259.pdf",
+      "signed_url": "https://dev.payments.august.style/assets/pdf/contract/kon-fuk-259-signed.pdf",  // NEW
+      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-fuk-259.pdf",
       ...
     }
   }

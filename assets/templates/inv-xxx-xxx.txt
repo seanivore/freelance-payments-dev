@@ -195,7 +195,7 @@ Late payments are subject to fees stipulated in the service agreement.
 
 	
 
-	Pay at https://payments.august.style
+	Pay at https://dev.payments.august.style
 	
 
 	

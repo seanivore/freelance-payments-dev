@@ -83,7 +83,7 @@ The Company retained the Freelancer. This Agreement ascribes the Freelancer’s 
                 Payments outlined in the Agreement section 1.3 will be requested by the Freelancer of the Company to be paid through the Freelancer’s client payments online portal, the same system that supplied and coordinated signing of this Agreement. Accessing the portal to make a payment requires login information provided via email to the Company, each time the Company logs in to the portal. Those provided details are as follows. 
 
 
-                Payments Site: https://payments.august.style 
+                Payments Site: https://dev.payments.august.style 
                 Last Name: {{product.login_name}} 
                 Project Keyword: {{product.login_keyword}}
 

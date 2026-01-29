@@ -130,7 +130,7 @@
     "line_items": [{"price": "uid-test-007-1", "quantity": 1}],
     "mode": "payment",
     "redirect_on_completion": "always",
-    "return_url": "https://payments.august.style/uid-test-007#completion",
+    "return_url": "https://dev.payments.august.style/uid-test-007#completion",
     "submit_type": "pay",
     "ui_mode": "embedded",
     "name_collection": {
@@ -156,7 +156,7 @@
     "line_items": [{"price": "uid-test-007-2", "quantity": 1}],
     "mode": "payment",
     "redirect_on_completion": "always",
-    "return_url": "https://payments.august.style/uid-test-007#completion",
+    "return_url": "https://dev.payments.august.style/uid-test-007#completion",
     "submit_type": "pay",
     "ui_mode": "embedded",
     "name_collection": {

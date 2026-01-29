@@ -76,7 +76,7 @@ Details tracking what is and isn't working end-to-end, after the addition of a n
   2. JSON contract artifact `docs.contract.id` added "kon-ilt-036"
   3. JSON contract artifact `docs.contract.pdf` added "assets/pdf/contract/kon-ilt-036.pdf"
   4. JSON contract artifact `docs.contract.file_id` added "1VyV6DjLplQC-kZSbRCBkJB3c9jMBjK_0Ts7c8I8Aibk"
-  5. JSON contract artifact `docs.contract.url` added "https://payments.august.style/assets/pdf/contract/kon-ilt-036.pdf" 
+  5. JSON contract artifact `docs.contract.url` added "https://dev.payments.august.style/assets/pdf/contract/kon-ilt-036.pdf" 
   6. JSON contract artifact `docs.contract.sha256` added "ae05ad3a03252d6de984da26d29f99a42e777717fd059d431ff498f7dce6000a"
   7. JSON contract artifact `docs.contract.created` added "2026-01-11T17:43:01.196442Z" 
 
@@ -86,7 +86,7 @@ Details tracking what is and isn't working end-to-end, after the addition of a n
   2. JSON contract artifact `docs.contract.id` added "inv-ilt-036"
   3. JSON contract artifact `docs.contract.pdf` added "assets/pdf/invoice/inv-ilt-036.pdf"
   4. JSON contract artifact `docs.contract.file_id` added "13P0eWNHs5QL4iOi7E97Hm0yrlkLdmb4OYnWjw4jc3UI"
-  5. JSON contract artifact `docs.contract.url` added "https://payments.august.style/assets/pdf/invoice/inv-ilt-036.pdf"
+  5. JSON contract artifact `docs.contract.url` added "https://dev.payments.august.style/assets/pdf/invoice/inv-ilt-036.pdf"
   6. JSON contract artifact `docs.contract.sha256` added "f97b8fe2132f514824a8965afaddc9967d139317d145a371d5c1f9b983ad91ba"
   7. JSON contract artifact `docs.contract.created` added "2026-01-11T17:43:06.376271Z" 
 
@@ -96,7 +96,7 @@ Details tracking what is and isn't working end-to-end, after the addition of a n
   2. JSON contract artifact `docs.contract.id` added "bal-ilt-036"
   3. JSON contract artifact `docs.contract.pdf` added "assets/pdf/balance/bal-ilt-036.pdf"
   4. JSON contract artifact `docs.contract.file_id` added "1JeNZ13UckOP7IX3WffW2YNF3O9NKT4VtOOYUDPtTRRQ"
-  5. JSON contract artifact `docs.contract.url` added "https://payments.august.style/assets/pdf/balance/bal-ilt-036.pdf" 
+  5. JSON contract artifact `docs.contract.url` added "https://dev.payments.august.style/assets/pdf/balance/bal-ilt-036.pdf" 
   6. JSON contract artifact `docs.contract.sha256` added "34a397ff889749eed4953005b59c1d977532d9cb0542dd10cbabb8de21ded709"
   7. JSON contract artifact `docs.contract.created` added "2026-01-11T17:43:11.632112Z" 
 
@@ -112,18 +112,18 @@ Details tracking what is and isn't working end-to-end, after the addition of a n
 
 ### Step 1 — Login for Job `assets/jobs/uid-ilt-036.json`
 
-  1. Load index.html at `payments.august.style` with login form
+  1. Load index.html at `dev.payments.august.style` with login form
   2. Successful login using `uid-ilt-036.json`'s `product.login_name` = 'Great' and `product.login_keyword` = 'tester-job' 
   3. Login searches `assets/js/manifest.json` using 'great tester job' finding `job.great-tester-job.job_id` to load `uid-ilt-036` data 
 
 ### Step 2 — Loads `job.great-tester-job.job_id` Contract
 
-  1. Normal `GET https://payments.august.style/uid-ilt-036 404 (Not Found)` calls `assets/js/payment-lookup.js` to handle form submission and job lookup via manifest — **NOTE: this was old architecture flow**
+  1. Normal `GET https://dev.payments.august.style/uid-ilt-036 404 (Not Found)` calls `assets/js/payment-lookup.js` to handle form submission and job lookup via manifest — **NOTE: this was old architecture flow**
 
 **CONSOLE LOG ERROR** 
 
 ```plaintext 
-  GET https://payments.august.style/uid-ilt-036 404 (Not Found)
+  GET https://dev.payments.august.style/uid-ilt-036 404 (Not Found)
 j @ assets/main-Bp3rihTn.js:1
 await in j
 pv @ assets/index-B6Js_b1r.js:8

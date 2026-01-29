@@ -8,7 +8,7 @@
 
 ## Design Strategy
 
-The payments platform, `payments.august.style`, is the first impression a client has with Sean's work after they've made verbal agreement to contract their work to him.
+The payments platform, `dev.payments.august.style`, is the first impression a client has with Sean's work after they've made verbal agreement to contract their work to him.
 
 These clients identify the designer from visual work that stands out; they're paying for that same high-bar of design excellence.
 

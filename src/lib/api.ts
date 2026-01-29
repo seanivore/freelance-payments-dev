@@ -7,10 +7,10 @@ const getApiBaseUrl = (): string => {
   // In development, use localhost or the Vercel URL
   if (import.meta.env.PROD) {
     // Use environment variable if set, otherwise default to Vercel backend
-    return import.meta.env.VITE_API_BASE_URL || 'https://freelance-payments-dev-neon.vercel.app';
+    return import.meta.env.VITE_API_BASE_URL || 'https://freelance-payments-dev.vercel.app';
   } else {
     // In development, prefer env var, fallback to Vercel backend
-    return import.meta.env.VITE_API_BASE_URL || 'https://freelance-payments-dev-neon.vercel.app';
+    return import.meta.env.VITE_API_BASE_URL || 'https://freelance-payments-dev.vercel.app';
   }
 };
 

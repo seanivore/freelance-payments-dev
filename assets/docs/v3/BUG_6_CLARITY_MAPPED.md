@@ -40,13 +40,13 @@ OH right and as a super very last measure I did grab these details though didn't
     - Used in Stripe as the Project Object ID, and internally as the job's JSON file's filename `assets/jobs/uid-abc-123.json` 
     - Use Stripe vocabulary everywhere; replace old terminology if found in code and helpful, e.g. 'job id' is generic, not special 
   + CLIENT LOGIN KEYWORD IDENTIFIERS 
-    - Clients login to `payments.august.style` by filling in two text fields with simple keywords 
+    - Clients login to `dev.payments.august.style` by filling in two text fields with simple keywords 
     - `product_object.metadata.login_name` is the last name of the client 
     - `product_object.metadata.login_keyword` is a simple hyphenated two-word phrase that fits the job 
   + JOB JSON FILES AND URLS ON MANIFEST 
     - After a job has Stripe catalog objects created, it is added to `assets/js/manifest.json` 
     - Entries are listed by the "URL" which consists of `login_name`-`login_keyword` 
-    - The URL informs the 404.html redirect what the URL should be, e.g. `payments.august.style/horvath-client-billing`
+    - The URL informs the 404.html redirect what the URL should be, e.g. `dev.payments.august.style/horvath-client-billing`
     - Each entry simply lists the job JSON filename's relative path, e.g. `assets/jobs/uid-abc-123.json` 
     - In the URL, the first word will always be the last name, the next two words will always be the hyphenated keyword 
 
