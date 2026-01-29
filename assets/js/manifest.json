@@ -1,11 +1,17 @@
 {
   "jobs": {
-    "mrl-machine-learning-research-lab": {
-      "file_path": "assets/jobs/uid-mrl-500.json",
-      "job_id": "uid-mrl-500",
-      "login_keyword": "machine-learning-research-lab",
-      "login_name": "mrl"
+    "tanya-handmade-jewelry": {
+      "file_path": "assets/jobs/uid-geg-040.json",
+      "job_id": "uid-geg-040",
+      "login_keyword": "handmade-jewelry",
+      "login_name": "tanya"
+    },
+    "deluca-dream-boutique": {
+      "file_path": "assets/jobs/uid-uau-225.json",
+      "job_id": "uid-uau-225",
+      "login_keyword": "dream-boutique",
+      "login_name": "deluca"
     }
   },
-  "generated_at": "2026-01-29T05:53:56.977339Z"
+  "generated_at": "2026-01-29T09:12:07.580899Z"
 }

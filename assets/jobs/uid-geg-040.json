@@ -9,7 +9,7 @@
     "signatures": {
       "contractor": {
         "legal_name": "Sean August Horvath",
-        "signed_date": null
+        "signed_date": "2026-01-29T09:11:30.579229Z"
       },
       "client": {
         "legal_name": null,
@@ -19,38 +19,38 @@
   },
   "docs": {
     "contract": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "kon-geg-040",
+      "pdf": "assets/pdf/contract/kon-geg-040.pdf",
+      "file_id": "1hQLmnq6JDy2omttMBDx6KxvOK7lOLdwLsXvLEFI71hU",
+      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-geg-040.pdf",
+      "sha256": "e45ff40bf9e58fc8da52e471a9243043fe442cdf22906a111ae8b4872eca103c",
+      "created": "2026-01-29T09:11:57.462666Z"
     },
     "invoice": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "inv-geg-040",
+      "pdf": "assets/pdf/invoice/inv-geg-040.pdf",
+      "file_id": "1io9--_dsrdbJtnQHSifo3fddNwvn73Io1UF08fx69B4",
+      "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-geg-040.pdf",
+      "sha256": "b77c0c1ef15b9eda96ca0f94dbbf1aa319de42232ac6d56180d4cbe4f2705955",
+      "created": "2026-01-29T09:12:02.925935Z"
     },
     "balance": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "bal-geg-040",
+      "pdf": "assets/pdf/balance/bal-geg-040.pdf",
+      "file_id": "1rlxXnsw4PaPKFB4lq8ClYuXlRgmWycekGQ-bn9I3H_Y",
+      "url": "https://dev.payments.august.style/assets/pdf/balance/bal-geg-040.pdf",
+      "sha256": "12288fd98263f268c4e9285f0dcdc7b2e1f5080fe18eddea05f78ffeacecc863",
+      "created": "2026-01-29T09:12:07.579643Z"
     }
   },
   "state": {
     "objects": {
-      "created": null,
-      "product": null,
-      "price_1": null,
-      "price_2": null,
-      "customer": null,
-      "coupon": null
+      "created": "2026-01-29T09:11:30.579229Z",
+      "product": "uid-geg-040",
+      "price_1": "price_1SurGA9fljwH26CPEZs9EQAm",
+      "price_2": "price_1SurGB9fljwH26CPkCwtaHrp",
+      "customer": "cus-geg-040",
+      "coupon": "cou-geg-040"
     },
     "client_status": {
       "logged_in": null,
@@ -115,7 +115,7 @@
         "uid-geg-040"
       ]
     },
-    "id": ""
+    "id": "price_1SurGA9fljwH26CPEZs9EQAm"
   },
   "price2": {
     "count": 2,
@@ -132,7 +132,7 @@
         "uid-geg-040"
       ]
     },
-    "id": ""
+    "id": "price_1SurGB9fljwH26CPkCwtaHrp"
   },
   "checkout_session_1": {
     "discounts": [
@@ -142,7 +142,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1SurGA9fljwH26CPEZs9EQAm",
         "quantity": 1
       }
     ],
@@ -158,7 +158,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1SurGB9fljwH26CPkCwtaHrp",
         "quantity": 1
       }
     ],
