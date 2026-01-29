@@ -309,7 +309,7 @@ dig dev.payments.august.style
 5. Copy signing secret → Add to Vercel as `STRIPE_WEBHOOK_SECRET`
 
 ---
-
+ 
 ## Step 8: Add GitHub Secrets for Dev Repo
 
 Go to: https://github.com/seanivore/freelance-payments-dev/settings/secrets/actions
