@@ -9,7 +9,7 @@
     "signatures": {
       "contractor": {
         "legal_name": "Sean August Horvath",
-        "signed_date": null
+        "signed_date": "2026-01-29T05:40:23.948384Z"
       },
       "client": {
         "legal_name": null,
@@ -19,38 +19,38 @@
   },
   "docs": {
     "contract": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "kon-mrl-500",
+      "pdf": "assets/pdf/contract/kon-mrl-500.pdf",
+      "file_id": "1V1VRO50PytTuy92eq3VQES9CQmeBNCcunmHxRL3DvJ4",
+      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-mrl-500.pdf",
+      "sha256": "558d341ce8629e00206bc63061c680ee4e55340c94c611834dad05a665e7b53f",
+      "created": "2026-01-29T05:40:32.320654Z"
     },
     "invoice": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "inv-mrl-500",
+      "pdf": "assets/pdf/invoice/inv-mrl-500.pdf",
+      "file_id": "1D8krAmqPdeR6muCCgCi5Soja5b3GrOq5ivoaKx32mSI",
+      "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-mrl-500.pdf",
+      "sha256": "b189ca97795dbca7a837a8ab10f2f7a2041722305fe01ca041ea65e7987a773d",
+      "created": "2026-01-29T05:40:38.442897Z"
     },
     "balance": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "bal-mrl-500",
+      "pdf": "assets/pdf/balance/bal-mrl-500.pdf",
+      "file_id": "1slSP_Q9ig42Slf0gxmFZcd1FEUa2W9CrjaONnpaH4hw",
+      "url": "https://dev.payments.august.style/assets/pdf/balance/bal-mrl-500.pdf",
+      "sha256": "999d7e2f3bb66e17e0e06e74daffc2a5b73f75f9dd32f6c762abfdc1e05d2a30",
+      "created": "2026-01-29T05:40:44.292743Z"
     }
   },
   "state": {
     "objects": {
-      "created": null,
-      "product": null,
-      "price_1": null,
-      "price_2": null,
-      "customer": null,
-      "coupon": null
+      "created": "2026-01-29T05:40:23.948384Z",
+      "product": "uid-mrl-500",
+      "price_1": "price_1Sunxs9fljwH26CP7ppcL7xM",
+      "price_2": "price_1Sunxs9fljwH26CP1UtI5mcA",
+      "customer": "cus-mrl-500",
+      "coupon": "cou-mrl-500"
     },
     "client_status": {
       "logged_in": null,
@@ -115,7 +115,7 @@
         "uid-mrl-500"
       ]
     },
-    "id": ""
+    "id": "price_1Sunxs9fljwH26CP7ppcL7xM"
   },
   "price2": {
     "count": 2,
@@ -132,7 +132,7 @@
         "uid-mrl-500"
       ]
     },
-    "id": ""
+    "id": "price_1Sunxs9fljwH26CP1UtI5mcA"
   },
   "checkout_session_1": {
     "discounts": [
@@ -142,7 +142,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1Sunxs9fljwH26CP7ppcL7xM",
         "quantity": 1
       }
     ],
@@ -158,7 +158,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1Sunxs9fljwH26CP1UtI5mcA",
         "quantity": 1
       }
     ],

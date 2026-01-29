@@ -1,11 +1,11 @@
 {
   "jobs": {
-    "ballard-dylan-dog-daycare": {
-      "file_path": "assets/jobs/uid-ioe-536.json",
-      "job_id": "uid-ioe-536",
-      "login_keyword": "dylan-dog-daycare",
-      "login_name": "Ballard"
+    "mrl-machine-learning-research-lab": {
+      "file_path": "assets/jobs/uid-mrl-500.json",
+      "job_id": "uid-mrl-500",
+      "login_keyword": "machine-learning-research-lab",
+      "login_name": "mrl"
     }
   },
-  "generated_at": "2026-01-29T05:34:57.963685Z"
+  "generated_at": "2026-01-29T05:40:44.293900Z"
 }
