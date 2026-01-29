@@ -1,11 +1,11 @@
 {
   "jobs": {
-    "donovan-check-in-ai-app": {
-      "file_path": "assets/jobs/uid-pdk-481.json",
-      "job_id": "uid-pdk-481",
-      "login_keyword": "check-in-ai-app",
-      "login_name": "Donovan"
+    "ballard-dylan-dog-daycare": {
+      "file_path": "assets/jobs/uid-ioe-536.json",
+      "job_id": "uid-ioe-536",
+      "login_keyword": "dylan-dog-daycare",
+      "login_name": "Ballard"
     }
   },
-  "generated_at": "2026-01-29T04:04:11.088546Z"
+  "generated_at": "2026-01-29T04:39:50.736501Z"
 }

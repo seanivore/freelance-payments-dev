@@ -9,7 +9,7 @@
     "signatures": {
       "contractor": {
         "legal_name": "Sean August Horvath",
-        "signed_date": null
+        "signed_date": "2026-01-29T04:39:29.775183Z"
       },
       "client": {
         "legal_name": null,
@@ -19,38 +19,38 @@
   },
   "docs": {
     "contract": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "kon-ioe-536",
+      "pdf": "assets/pdf/contract/kon-ioe-536.pdf",
+      "file_id": "10CAkS8eIOkehfPJtz81aNh4ZjrAGl78pNSdwVprn3gk",
+      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-ioe-536.pdf",
+      "sha256": "e83872dab07673bc9862fdf66e9ae3bfeac608855ddfe3ff285bb09b74dd5c37",
+      "created": "2026-01-29T04:39:39.309741Z"
     },
     "invoice": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "inv-ioe-536",
+      "pdf": "assets/pdf/invoice/inv-ioe-536.pdf",
+      "file_id": "1UR2bEtW_rMmj3fheg1wEfX_Bs_AAVXzuKkPBI4P9acc",
+      "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-ioe-536.pdf",
+      "sha256": "d5288f9a6d903f972104ec3a62e313f6ad8e5dd37d1e89bf40e76294f51b1d2b",
+      "created": "2026-01-29T04:39:45.747183Z"
     },
     "balance": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "bal-ioe-536",
+      "pdf": "assets/pdf/balance/bal-ioe-536.pdf",
+      "file_id": "1vUR0qmC5uy3GlQ37hwO8S14ske395Sa38iKQ2OZPPJg",
+      "url": "https://dev.payments.august.style/assets/pdf/balance/bal-ioe-536.pdf",
+      "sha256": "1e05a5402960457c79db975716b737fbbd77264652fb8f0d999326e877967626",
+      "created": "2026-01-29T04:39:50.735398Z"
     }
   },
   "state": {
     "objects": {
-      "created": null,
-      "product": null,
-      "price_1": null,
-      "price_2": null,
-      "customer": null,
-      "coupon": null
+      "created": "2026-01-29T04:39:29.775183Z",
+      "product": "uid-ioe-536",
+      "price_1": "price_1Sun0w9fljwH26CPNqjYydVE",
+      "price_2": "price_1Sun0w9fljwH26CP3cm6ozaF",
+      "customer": "cus-ioe-536",
+      "coupon": "cou-ioe-536"
     },
     "client_status": {
       "logged_in": null,
@@ -115,7 +115,7 @@
         "uid-ioe-536"
       ]
     },
-    "id": ""
+    "id": "price_1Sun0w9fljwH26CPNqjYydVE"
   },
   "price2": {
     "count": 2,
@@ -132,7 +132,7 @@
         "uid-ioe-536"
       ]
     },
-    "id": ""
+    "id": "price_1Sun0w9fljwH26CP3cm6ozaF"
   },
   "checkout_session_1": {
     "discounts": [
@@ -142,7 +142,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1Sun0w9fljwH26CPNqjYydVE",
         "quantity": 1
       }
     ],
@@ -158,7 +158,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1Sun0w9fljwH26CP3cm6ozaF",
         "quantity": 1
       }
     ],
