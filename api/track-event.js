@@ -97,14 +97,17 @@ export default async (req, res) => {
         const eventsArray = event_data;
 
         // Dispatch single workflow run with all events
+        // Use full workflow file path for better compatibility
+        const workflowPath = '.github/workflows/user-exit-events.yml';
         const githubResponse = await fetch(
-          `https://api.github.com/repos/${repo}/actions/workflows/${workflowId}/dispatches`,
+          `https://api.github.com/repos/${repo}/actions/workflows/${workflowPath}/dispatches`,
           {
             method: 'POST',
             headers: {
-              'Authorization': `token ${githubToken}`,
-              'Accept': 'application/vnd.github.v3+json',
-              'Content-Type': 'application/json'
+              'Authorization': `Bearer ${githubToken}`,
+              'Accept': 'application/vnd.github+json',
+              'Content-Type': 'application/json',
+              'X-GitHub-Api-Version': '2022-11-28'
             },
             body: JSON.stringify({
               ref: 'freelance-payments',
