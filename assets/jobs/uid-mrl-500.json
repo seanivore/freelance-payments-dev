@@ -55,7 +55,7 @@
         "client_status": {
             "logged_in": "2026-01-29T05:41:58.714Z",
             "contract_signed": "2026-01-29T05:42:20.659Z",
-            "invoice": null,
+            "invoice": "2026-01-29T06:01:32.633Z",
             "payment_1": null,
             "balance": null,
             "payment_2": null
