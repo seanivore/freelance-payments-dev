@@ -1,4 +1,5 @@
 name: User Exit Events
+# Force GitHub to index this workflow
 
 # TRIGGER=user-exit-events
 # When: User exits site, triggering /api/track-event which dispatches this workflow

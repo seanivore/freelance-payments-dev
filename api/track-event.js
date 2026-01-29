@@ -92,15 +92,20 @@ export default async (req, res) => {
     const repo = process.env.GITHUB_REPO || 'seanivore/freelance-payments-dev';
     const workflowId = 'user-exit-events.yml';
 
+    // Debug: Log what we're attempting (mask token for security)
+    const dispatchUrl = `https://api.github.com/repos/${repo}/actions/workflows/${workflowId}/dispatches`;
+    console.log(`🔧 DEBUG: Dispatching to URL: ${dispatchUrl}`);
+    console.log(`🔧 DEBUG: GITHUB_REPO env: "${process.env.GITHUB_REPO}" (using: "${repo}")`);
+    console.log(`🔧 DEBUG: Token present: ${!!githubToken}, length: ${githubToken?.length || 0}`);
+
     if (githubToken) {
       try {
         const eventsArray = event_data;
 
         // Dispatch single workflow run with all events
-        // Use full workflow file path for better compatibility
-        const workflowPath = '.github/workflows/user-exit-events.yml';
+        // GitHub API expects just the workflow filename, not the full path
         const githubResponse = await fetch(
-          `https://api.github.com/repos/${repo}/actions/workflows/${workflowPath}/dispatches`,
+          dispatchUrl,
           {
             method: 'POST',
             headers: {
@@ -121,6 +126,7 @@ export default async (req, res) => {
 
         if (!githubResponse.ok) {
           const errorText = await githubResponse.text();
+          console.warn(`🔧 DEBUG: GitHub API response status: ${githubResponse.status}`);
           console.warn('GitHub Actions trigger failed:', errorText);
           // Don't fail the request - event is still logged
         } else {
