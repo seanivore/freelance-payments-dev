@@ -12,8 +12,8 @@
         "signed_date": "2026-01-29T04:39:29.775183Z"
       },
       "client": {
-        "legal_name": null,
-        "signed_date": null
+        "legal_name": "Dylan Ballard",
+        "signed_date": "2026-01-29T04:39:29.775183Z"
       }
     }
   },
@@ -53,10 +53,10 @@
       "coupon": "cou-ioe-536"
     },
     "client_status": {
-      "logged_in": null,
-      "contract_signed": null,
-      "invoice": null,
-      "payment_1": null,
+      "logged_in": "2026-01-29T04:39:29.775183Z",
+      "contract_signed": "2026-01-29T04:39:29.775183Z",
+      "invoice": "2026-01-29T04:39:45.747183Z",
+      "payment_1": "2026-01-29T04:39:50.735398Z",
       "balance": null,
       "payment_2": null
     }
