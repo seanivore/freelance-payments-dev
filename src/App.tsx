@@ -83,11 +83,13 @@ export default function App() {
   };
 
   const sendEvents = useCallback(async (events: Array<{type: string; timestamp: string; data: any}>, useBeacon = false) => {
-    if (events.length === 0) return;
-    if (shouldSkipFlush(events)) return;
+    console.log(`🚀 sendEvents called: ${events.length} events, useBeacon: ${useBeacon}`);
+    if (events.length === 0) { console.log('⏭️ Skipping: no events'); return; }
+    if (shouldSkipFlush(events)) { console.log('⏭️ Skipping: duplicate flush'); return; }
 
     const jobId = window.location.pathname.substring(1);
-    if (!jobId || jobId === '/') return;
+    console.log(`📍 Job ID from URL: "${jobId}"`);
+    if (!jobId || jobId === '/') { console.log('⏭️ Skipping: invalid job ID'); return; }
 
     const payload = JSON.stringify({
       job_id: jobId,
@@ -97,14 +99,18 @@ export default function App() {
 
     // Use sendBeacon for unload scenarios - it's more reliable than fetch with keepalive
     // because it survives page unload. We use text/plain to avoid CORS preflight.
+    const targetUrl = apiUrl('/api/track-event');
+    console.log(`🎯 Target URL: ${targetUrl}`);
     if (useBeacon && navigator.sendBeacon) {
       // Use text/plain to avoid CORS preflight - server parses JSON from body
       const blob = new Blob([payload], { type: 'text/plain' });
-      const sent = navigator.sendBeacon(apiUrl('/api/track-event'), blob);
+      const sent = navigator.sendBeacon(targetUrl, blob);
+      console.log(`📡 sendBeacon result: ${sent}`);
       if (!sent) {
         console.warn('sendBeacon failed, falling back to fetch');
         // Fall through to fetch
       } else {
+        console.log('✅ sendBeacon queued successfully');
         return; // Successfully queued via beacon
       }
     }
@@ -185,12 +191,13 @@ export default function App() {
     
     // Mark this event as sent for this session
     sentEventsRef.current.add(type);
-    
+
     eventBufferRef.current.push({
       type,
       timestamp: new Date().toISOString(),
       data: eventData
     });
+    console.log(`📝 Event queued: ${type}, buffer size: ${eventBufferRef.current.length}`);
     resetTimer();
   }, [resetTimer]);
 
@@ -205,16 +212,19 @@ export default function App() {
     
     let unloadHandled = false;
     const handleUnload = () => {
-      if (unloadHandled) return;
-      if (eventBufferRef.current.length === 0) return;
-      
+      console.log(`🚪 handleUnload triggered, buffer size: ${eventBufferRef.current.length}`);
+      if (unloadHandled) { console.log('⏭️ Already handled'); return; }
+      if (eventBufferRef.current.length === 0) { console.log('⏭️ Buffer empty'); return; }
+
       unloadHandled = true;
       const jobId = window.location.pathname.substring(1);
+      console.log(`📍 Unload job ID: "${jobId}"`);
       if (jobId && jobId !== '/') {
         const eventsToSend = [...eventBufferRef.current];
+        console.log(`📤 Sending ${eventsToSend.length} events on unload`);
         // Clear buffer immediately to prevent double-sends
         eventBufferRef.current = [];
-        sendEvents(eventsToSend, true).catch(() => {});
+        sendEvents(eventsToSend, true).catch((e) => console.error('❌ sendEvents error:', e));
       }
     };
     
