@@ -1,8 +1,8 @@
 {
   "project": "Test Project",
   "contract": {
-    "work_start": null,
-    "work_end": null,
+    "work_start": "2026-01-28",
+    "work_end": "2026-04-28",
     "legal_jurisdiction": "Massachusetts",
     "maintenance_period_months": 3,
     "maintenance_monthly_fee": 150,
@@ -62,12 +62,12 @@
     }
   },
   "product": {
-    "name": null,
+    "name": "Test Project",
     "active": true,
-    "description": null,
+    "description": "This is a test product job project.",
     "id": "uid-jza-440",
-    "login_name": null,
-    "login_keyword": null,
+    "login_name": "Test",
+    "login_keyword": "client-job",
     "service_usd": 50000,
     "total_payments": 2,
     "discount_usd": 5000,
@@ -76,17 +76,17 @@
   },
   "customer": {
     "name": "Test Client",
-    "business": null,
-    "title": null,
-    "email": null,
-    "phone": null,
+    "business": "Test Business",
+    "title": "Test Title",
+    "email": "test@example.com",
+    "phone": "123-456-7890",
     "id": "cus-jza-440",
     "address": {
-      "city": null,
-      "line1": null,
-      "state": null,
-      "postal_code": null,
-      "country": null
+      "city": "Test City",
+      "line1": "123 Test St",
+      "state": "MA",
+      "postal_code": "02138",
+      "country": "US"
     }
   },
   "coupon": {
@@ -100,7 +100,7 @@
     "duration": "once",
     "id": "cou-jza-440",
     "max_redemptions": 1,
-    "name": null
+    "name": "Test Coupon"
   },
   "price1": {
     "count": 1,
@@ -166,6 +166,6 @@
     "return_url": "https://dev.payments.august.style/uid-jza-440?session_id={CHECKOUT_SESSION_ID}",
     "ui_mode": "custom"
   },
-  "project_scope_summary": null,
-  "project_scope_full": null
+  "project_scope_summary": "This is a test project scope summary.",
+  "project_scope_full": "This is a test project scope full."
 }
