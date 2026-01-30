@@ -165,7 +165,7 @@
     ],
     "mode": "payment",
     "redirect_on_completion": "always",
-    "return_url": "https://dev.payments.august.style/uid-test-001#completion",
+    "return_url": "https://payments.august.style/uid-test-001#completion",
     "submit_type": "pay",
     "ui_mode": "embedded",
     "name_collection": {
@@ -210,7 +210,7 @@
     ],
     "mode": "payment",
     "redirect_on_completion": "always",
-    "return_url": "https://dev.payments.august.style/payment-success",
+    "return_url": "https://payments.august.style/payment-success",
     "submit_type": "pay",
     "ui_mode": "embedded",
     "name_collection": {

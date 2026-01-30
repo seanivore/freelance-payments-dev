@@ -20,7 +20,7 @@ export default function App() {
   // since events are flushed on page exit anyway.
   
   const eventBufferRef = useRef<Array<{type: string; timestamp: string; data: any}>>([]);
-  const INACTIVITY_LIMIT = 10 * 60 * 1000; // 10 minutes
+  const INACTIVITY_LIMIT = 5 * 60 * 1000; // 5 minutes (safety net for abandoned sessions)
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const processedSessionRef = useRef<string | null>(null);
   const loggedInQueuedRef = useRef(false);
@@ -83,13 +83,14 @@ export default function App() {
   };
 
   const sendEvents = useCallback(async (events: Array<{type: string; timestamp: string; data: any}>, useBeacon = false) => {
-    console.log(`🚀 sendEvents called: ${events.length} events, useBeacon: ${useBeacon}`);
-    if (events.length === 0) { console.log('⏭️ Skipping: no events'); return; }
-    if (shouldSkipFlush(events)) { console.log('⏭️ Skipping: duplicate flush'); return; }
+    if (events.length === 0) return;
+    if (shouldSkipFlush(events)) return;
 
     const jobId = window.location.pathname.substring(1);
-    console.log(`📍 Job ID from URL: "${jobId}"`);
-    if (!jobId || jobId === '/') { console.log('⏭️ Skipping: invalid job ID'); return; }
+    if (!jobId || jobId === '/') return;
+
+    console.log(`🚀 sendEvents called: ${events.length} events, useBeacon: ${useBeacon}`);
+    console.log(`🎯 Target URL: ${apiUrl('/api/track-event')}`);
 
     const payload = JSON.stringify({
       job_id: jobId,
@@ -99,18 +100,15 @@ export default function App() {
 
     // Use sendBeacon for unload scenarios - it's more reliable than fetch with keepalive
     // because it survives page unload. We use text/plain to avoid CORS preflight.
-    const targetUrl = apiUrl('/api/track-event');
-    console.log(`🎯 Target URL: ${targetUrl}`);
     if (useBeacon && navigator.sendBeacon) {
       // Use text/plain to avoid CORS preflight - server parses JSON from body
       const blob = new Blob([payload], { type: 'text/plain' });
-      const sent = navigator.sendBeacon(targetUrl, blob);
+      const sent = navigator.sendBeacon(apiUrl('/api/track-event'), blob);
       console.log(`📡 sendBeacon result: ${sent}`);
       if (!sent) {
         console.warn('sendBeacon failed, falling back to fetch');
         // Fall through to fetch
       } else {
-        console.log('✅ sendBeacon queued successfully');
         return; // Successfully queued via beacon
       }
     }
@@ -192,12 +190,13 @@ export default function App() {
     // Mark this event as sent for this session
     sentEventsRef.current.add(type);
 
+    console.log(`📝 Event queued: ${type}, buffer size: ${eventBufferRef.current.length}`);
+
     eventBufferRef.current.push({
       type,
       timestamp: new Date().toISOString(),
       data: eventData
     });
-    console.log(`📝 Event queued: ${type}, buffer size: ${eventBufferRef.current.length}`);
     resetTimer();
   }, [resetTimer]);
 
@@ -210,29 +209,29 @@ export default function App() {
     
     activityEvents.forEach(e => window.addEventListener(e, handleActivity));
     
+    // Simple unload handler - flushes events when page is unloading
+    // The unloadHandled flag prevents double-flushes if both pagehide and beforeunload fire
     let unloadHandled = false;
     const handleUnload = () => {
+      if (unloadHandled) return;
       console.log(`🚪 handleUnload triggered, buffer size: ${eventBufferRef.current.length}`);
-      if (unloadHandled) { console.log('⏭️ Already handled'); return; }
-      if (eventBufferRef.current.length === 0) { console.log('⏭️ Buffer empty'); return; }
+      if (eventBufferRef.current.length === 0) return;
 
       unloadHandled = true;
       const jobId = window.location.pathname.substring(1);
-      console.log(`📍 Unload job ID: "${jobId}"`);
       if (jobId && jobId !== '/') {
         const eventsToSend = [...eventBufferRef.current];
-        console.log(`📤 Sending ${eventsToSend.length} events on unload`);
         // Clear buffer immediately to prevent double-sends
         eventBufferRef.current = [];
-        sendEvents(eventsToSend, true).catch((e) => console.error('❌ sendEvents error:', e));
+        sendEvents(eventsToSend, true).catch(() => {});
       }
     };
-    
+
     // NOTE: We intentionally do NOT flush on visibilitychange anymore.
     // visibilitychange fires too aggressively (slow page loads, tab switches, etc.)
     // and was causing events to flush individually instead of batched.
     // We rely on pagehide/beforeunload for actual page exits.
-    
+
     // Handle back button / popstate - flush events so they're not lost
     const handlePopState = () => {
       if (eventBufferRef.current.length === 0) return;
@@ -241,8 +240,18 @@ export default function App() {
       // Use sendBeacon for reliability during navigation
       sendEvents(eventsToSend, true).catch(() => {});
     };
-    
-    // Only listen for actual page unload events, not visibility changes
+
+    // NOTE: We intentionally do NOT flush on visibilitychange anymore.
+    // visibilitychange fires too aggressively (slow page loads, tab switches, etc.)
+    // and was causing events to flush individually instead of batched.
+    // We rely on pagehide/beforeunload for actual page exits.
+
+    // Event flush triggers:
+    // 1. Proactive flush when checkout form loads (pre-payment events)
+    // 2. pagehide/beforeunload - page unload backup
+    // 3. popstate - back button navigation
+    // 4. Inactivity timer (5 min) - abandoned session safety net
+    // 5. Payment completion - payment event only (handled elsewhere)
     window.addEventListener('pagehide', handleUnload);
     window.addEventListener('beforeunload', handleUnload);
     window.addEventListener('popstate', handlePopState);
@@ -293,9 +302,25 @@ export default function App() {
       .then(res => res.json())
       .then(sessionData => {
         console.log('📊 Session status response:', sessionData);
+
+        // BUG_06_00_003 FIX: CRITICAL - Validate session belongs to THIS job
+        // A stale session_id from a different job could cause incorrect payment recording
+        const currentJobId = window.location.pathname.substring(1);
+        const sessionJobId = sessionData.metadata?.job_id;
+
+        if (sessionJobId && sessionJobId !== currentJobId) {
+          console.warn('⚠️ Session job_id mismatch! Session is for', sessionJobId, 'but current job is', currentJobId);
+          console.warn('⚠️ Ignoring stale session to prevent incorrect payment recording');
+          // Clear the session state to prevent routing issues
+          setSessionId(null);
+          setSessionStatus(null);
+          setSessionPaymentNumber(null);
+          return;
+        }
+
         setSessionStatus(sessionData.status as 'complete' | 'open');
-        
-        const paymentNumber = sessionData.metadata?.payment_number 
+
+        const paymentNumber = sessionData.metadata?.payment_number
           ? parseInt(sessionData.metadata.payment_number, 10) as 1 | 2
           : null;
         console.log('📊 Parsed paymentNumber:', paymentNumber);
@@ -336,16 +361,17 @@ export default function App() {
           console.log('📊 paymentType:', paymentType, 'updates:', updates);
           
           if (paymentType && Object.keys(updates).length > 0) {
-            console.log('📊 Payment complete! Flushing ALL events immediately');
-            
-            // IMPORTANT: On payment completion, we send EVERYTHING immediately:
-            // 1. All buffered events (logged_in, contract_signed, invoice OR balance)
-            // 2. The payment event itself
-            // This ensures all events are recorded before user can navigate away.
-            
+            console.log('📊 Payment complete! Sending payment event');
+
+            // Payment event flow:
+            // - Pre-payment events (logged_in, contract_signed, invoice/balance) were proactively
+            //   flushed when checkout form loaded (see createCheckoutSession)
+            // - Here we send ONLY the payment event, confirming payment was successful
+            // - If proactive flush failed, any remaining buffered events are sent here as fallback
+
             // Mark payment as sent to prevent duplicates
             sentEventsRef.current.add(paymentType);
-            
+
             // Create the payment event
             const paymentEvent = {
               type: paymentType,
@@ -355,13 +381,13 @@ export default function App() {
                 session_id: sessionId
               }
             };
-            
-            // Combine buffered events + payment event into one batch
+
+            // Include any remaining buffered events (fallback if proactive flush failed)
             const bufferedEvents = [...eventBufferRef.current];
             eventBufferRef.current = []; // Clear buffer
             const allEvents = [...bufferedEvents, paymentEvent];
-            
-            console.log('📊 Sending all events in one batch:', allEvents.map(e => e.type));
+
+            console.log('📊 Sending payment event (+ any remaining buffered):', allEvents.map(e => e.type));
             
             // Send all events together - one API call, one workflow
             sendEvents(allEvents, false).catch(err => {
@@ -596,6 +622,19 @@ export default function App() {
 
       const session = await response.json();
       if (session.client_secret) {
+        // PROACTIVE FLUSH: Send all buffered events (logged_in, contract_signed, invoice/balance)
+        // BEFORE the checkout form renders. This ensures pre-payment events are sent
+        // before the Stripe redirect, which on iOS Safari may not trigger pagehide properly.
+        // The payment event will be sent separately after payment confirmation.
+        if (eventBufferRef.current.length > 0) {
+          console.log('📤 Proactive flush before checkout:', eventBufferRef.current.map(e => e.type));
+          const eventsToSend = [...eventBufferRef.current];
+          eventBufferRef.current = [];
+          sendEvents(eventsToSend, false).catch(err => {
+            console.error('Failed to proactively flush events:', err);
+          });
+        }
+
         setClientSecret(session.client_secret);
       } else {
         throw new Error('No client_secret in response');

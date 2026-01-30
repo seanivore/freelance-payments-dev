@@ -194,7 +194,7 @@ Run git config --global user.name 'github-actions[bot]'
 + Loaded balance PDF after login 
 
 ```plaintext 
-  GET https://dev.payments.august.style/uid-fri-956 404 (Not Found)
+  GET https://payments.august.style/uid-fri-956 404 (Not Found)
 S @ assets/main-BgpHDfX3.js:1
 await in S
 pv @ index-C8XLP5Y7.js:8

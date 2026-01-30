@@ -15,7 +15,7 @@ const session = await stripe.checkout.sessions.create({
   client_reference_id: "cus-ilt-036",
   currency: "usd",
   mode: "payment",
-  return_url: "https://dev.payments.august.style/uid-ilt-036#completion-1",
+  return_url: "https://payments.august.style/uid-ilt-036#completion-1",
   ui_mode: "custom",
   discounts: [
     {
@@ -49,7 +49,7 @@ const session = await stripe.checkout.sessions.create({
     }
   },
   "mode": "payment",
-  "return_url": "https://dev.payments.august.style/uid-ilt-036#completion-1",
+  "return_url": "https://payments.august.style/uid-ilt-036#completion-1",
   "ui_mode": "custom"
 }
 ```
@@ -148,7 +148,7 @@ const session = await stripe.checkout.sessions.create({
     "enabled": false
   },
   "recovered_from": null,
-  "return_url": "https://dev.payments.august.style/uid-ilt-036#completion-1",
+  "return_url": "https://payments.august.style/uid-ilt-036#completion-1",
   "saved_payment_method_options": null,
   "setup_intent": null,
   "shipping_address_collection": null,

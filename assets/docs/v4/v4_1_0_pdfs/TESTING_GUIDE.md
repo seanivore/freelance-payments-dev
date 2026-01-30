@@ -83,7 +83,7 @@ Check workflow logs for:
 
 ### 5. Test Login Lookup
 
-1. Visit `https://dev.payments.august.style/`
+1. Visit `https://payments.august.style/`
 2. Enter:
    - **Last Name:** `Test`
    - **Project Keyword:** `test-project`

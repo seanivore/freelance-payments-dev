@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-A freelance payment collection micro-site (`dev.payments.august.style`) built with React 18 + Vite + TypeScript. The system automates contract generation, invoice creation, payment processing, and document management using JSON files as the data source (no database).
+A freelance payment collection micro-site (`payments.august.style`) built with React 18 + Vite + TypeScript. The system automates contract generation, invoice creation, payment processing, and document management using JSON files as the data source (no database).
 
 **Key Architecture**: Hybrid hosting - Static frontend (GitHub Pages/Vercel) + Runtime backend (Vercel serverless functions). Uses 404-redirect trick for SPA routing on static hosts.
 

@@ -144,7 +144,7 @@
     "line_items": [{"price": "stripe-provided-price-1", "quantity": 1}],
     "mode": "payment",
     "phone_number_collection": {"enabled": true},
-    "return_url": "https://dev.payments.august.style/{job_id}#completion",
+    "return_url": "https://payments.august.style/{job_id}#completion",
     "ui_mode": "custom"
   },
 
@@ -155,7 +155,7 @@
     "line_items": [{"price": "stripe-provided-price-2", "quantity": 1}],
     "mode": "payment",
     "phone_number_collection": {"enabled": true},
-    "return_url": "https://dev.payments.august.style/{job_id}#completion",
+    "return_url": "https://payments.august.style/{job_id}#completion",
     "ui_mode": "custom"
   },
 

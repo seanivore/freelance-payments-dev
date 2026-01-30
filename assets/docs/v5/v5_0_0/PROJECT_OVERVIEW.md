@@ -1,5 +1,5 @@
 # Comprehensive Project Overview 
-*Testing is completed on the liv site:* `https://dev.payments.august.style`
+*Testing is completed on the liv site:* `https://payments.august.style`
 
 ## Summary 
 
@@ -264,12 +264,12 @@ freelance-payments/
   3. `state.client_status.invoice` = USER DOWNLOADED OR ACKNOWLEDGED INVOICE PDF 
     --> continues to payment 1 automatically after action gate for DOWNLOAD DOCS OR ACKNOWLEDGE AND MOVE ON 
   4. `state.client_status.payment_1` = USER PAYMENT 1 CHECKOUT SESSION IS SUCCESSFULLY COMPLETED 
-    --> continues to `checkout_session_1.return_url= https://dev.payments.august.style/uid-cat-202#completion-1` automatically on payment completion 
+    --> continues to `checkout_session_1.return_url= https://payments.august.style/uid-cat-202#completion-1` automatically on payment completion 
     --> URL shows small buttons to continue to balance and final payment 
   5. `state.client_status.balance` = USER DOWNLOADED OR ACKNOWLEDGED BALANCE PDF 
     --> continues to payment 2 automatically after action gate for DOWNLOAD DOCS OR ACKNOWLEDGE AND MOVE ON 
   6. `state.client_status.payment_2` = USER PAYMENT 2 CHECKOUT SESSION IS SUCCESSFULLY COMPLETED 
-    --> continues to `checkout_session_2.return_url= https://dev.payments.august.style/uid-cat-202#completion-2` automatically on payment completion 
+    --> continues to `checkout_session_2.return_url= https://payments.august.style/uid-cat-202#completion-2` automatically on payment completion 
     --> URL shows clear buttons to download previous PDFs and no other page is ever loaded 
 
 ---

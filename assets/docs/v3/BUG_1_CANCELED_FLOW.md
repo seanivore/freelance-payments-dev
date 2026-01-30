@@ -921,5 +921,5 @@
   2025-12-27T23:39:58.5608025Z Getting Pages deployment status...
   2025-12-27T23:39:58.7720944Z Reported success!
   2025-12-27T23:39:58.7956281Z Evaluate and set environment url
-  2025-12-27T23:39:58.7960752Z Evaluated environment url: https://dev.payments.august.style/
+  2025-12-27T23:39:58.7960752Z Evaluated environment url: https://payments.august.style/
   2025-12-27T23:39:58.7961692Z Cleaning up orphan processes

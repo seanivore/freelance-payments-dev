@@ -42,7 +42,7 @@ This log tracks bugs and fixes during v5 testing. Follow these conventions:
 **Status**: FIXED  
 **Severity**: Medium (visual only, no functional impact)
 
-**Issue**: Background images (`pdf-viewer-bg-art-1.webp`, `pdf-viewer-bg-art-2.webp`, `pdf-viewer-bg-art-3.webp`) return 404 errors in console. URLs like `https://dev.payments.august.style/assets/media/pdf-viewer-bg-art-2.webp` fail to load.
+**Issue**: Background images (`pdf-viewer-bg-art-1.webp`, `pdf-viewer-bg-art-2.webp`, `pdf-viewer-bg-art-3.webp`) return 404 errors in console. URLs like `https://payments.august.style/assets/media/pdf-viewer-bg-art-2.webp` fail to load.
 
 **Expected**: Background art displays on homepage, PDF viewer, and completion pages  
 **Actual**: 404 errors, no background images visible
@@ -54,8 +54,8 @@ This log tracks bugs and fixes during v5 testing. Follow these conventions:
 
 **Console Errors**:
 ```
-GET https://dev.payments.august.style/assets/media/pdf-viewer-bg-art-1.webp 404 (Not Found)
-GET https://dev.payments.august.style/assets/media/pdf-viewer-bg-art-2.webp 404 (Not Found)
+GET https://payments.august.style/assets/media/pdf-viewer-bg-art-1.webp 404 (Not Found)
+GET https://payments.august.style/assets/media/pdf-viewer-bg-art-2.webp 404 (Not Found)
 ```
 
 **Fix Implemented**: Added `assets/media` to `viteStaticCopy` targets in `vite.config.ts`:

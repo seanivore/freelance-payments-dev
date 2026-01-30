@@ -22,7 +22,7 @@
       "id": "kon-uid-test-payment-002",
       "pdf": "assets/pdf/contract/kon-uid-test-payment-002.pdf",
       "file_id": "1mH8-YrEhVZ9b6KMq6hu0r6skh33yB7IjHNAv94xMAcc",
-      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-uid-test-payment-002.pdf",
+      "url": "https://payments.august.style/assets/pdf/contract/kon-uid-test-payment-002.pdf",
       "sha256": "29c9ddefed7a7ce3733108599a597495e898124b25735872c2a9b9dc32c31736",
       "created": "2026-01-05T14:39:57.652328Z"
     },
@@ -155,7 +155,7 @@
     "phone_number_collection": {
       "enabled": true
     },
-    "return_url": "https://dev.payments.august.style/uid-test-payment-002#completion",
+    "return_url": "https://payments.august.style/uid-test-payment-002#completion",
     "ui_mode": "custom"
   },
   "checkout_session_2": {
@@ -172,7 +172,7 @@
     "phone_number_collection": {
       "enabled": true
     },
-    "return_url": "https://dev.payments.august.style/uid-test-payment-002#completion",
+    "return_url": "https://payments.august.style/uid-test-payment-002#completion",
     "ui_mode": "custom"
   },
   "project_scope_summary": null,

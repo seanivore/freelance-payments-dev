@@ -52,7 +52,7 @@ _Updated 2026-01-13 for v5 schema_
             "id": null, // artifact, 'kon-xxx-xxx'
             "pdf": null, // artifact, 'assets/pdf/contract/kon-xxx-xxx.pdf'
             "file_id": null, // artifact, 'random character string' from process
-            "url": null, // artifact, 'dev.payments.august.style' PDF location
+            "url": null, // artifact, 'payments.august.style' PDF location
             "sha256": null, // artifact, 'random character string' from process
             "created": null // artifact, ISO timestamp confirmation
         },
@@ -177,7 +177,7 @@ _Updated 2026-01-13 for v5 schema_
             }
         ],
         "mode": "payment", // provided
-        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]?session_id={CHECKOUT_SESSION_ID}", // required, update [uid-xxx-xxx] with actual product.id
+        "return_url": "https://payments.august.style/[uid-xxx-xxx]?session_id={CHECKOUT_SESSION_ID}", // required, update [uid-xxx-xxx] with actual product.id
         "ui_mode": "custom" // provided
     },
     "checkout_session_2": { // facilitates on-demand price2 checkout session initialization
@@ -193,7 +193,7 @@ _Updated 2026-01-13 for v5 schema_
             }
         ],
         "mode": "payment", // provided
-        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]?session_id={CHECKOUT_SESSION_ID}", // required, update [uid-xxx-xxx] with actual product.id
+        "return_url": "https://payments.august.style/[uid-xxx-xxx]?session_id={CHECKOUT_SESSION_ID}", // required, update [uid-xxx-xxx] with actual product.id
         "ui_mode": "custom" // provided
     },
     "project_scope_summary": null, // required, summary of deliverable
@@ -203,4 +203,4 @@ _Updated 2026-01-13 for v5 schema_
 
 ---
 
-_Update reviewed 2026-01-28 by Sean August Horvath_
+_Update reviewed 2026-01-13 by Sean August Horvath_

@@ -22,7 +22,7 @@
       "id": "kon-jxr-848",
       "pdf": "assets/pdf/contract/kon-jxr-848.pdf",
       "file_id": "1MYxcGnN2Nsf5_4kPu9jseSc4Ryv2VslMYNzD79jw_nE",
-      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-jxr-848.pdf",
+      "url": "https://payments.august.style/assets/pdf/contract/kon-jxr-848.pdf",
       "sha256": "887d6b15a4183109ed5598ea417caf2371a502adbf15e47b7268d2ed4ee72c82",
       "created": "2026-01-17T19:35:25.646971Z"
     },
@@ -30,7 +30,7 @@
       "id": "inv-jxr-848",
       "pdf": "assets/pdf/invoice/inv-jxr-848.pdf",
       "file_id": "1qhDruPTeZiA6JXGQGn0qRSGc_9iDL8QDzdrj0zrJmRE",
-      "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-jxr-848.pdf",
+      "url": "https://payments.august.style/assets/pdf/invoice/inv-jxr-848.pdf",
       "sha256": "bcc7f8b88ee6eb495f825b353504660824e0e984e074b675d6768b0eab5c6e6f",
       "created": "2026-01-17T19:35:30.646020Z"
     },
@@ -38,7 +38,7 @@
       "id": "bal-jxr-848",
       "pdf": "assets/pdf/balance/bal-jxr-848.pdf",
       "file_id": "1GTq9uF4ANzdP_wwDZMet8O4kUlfi0rx3aceBlF29_Eo",
-      "url": "https://dev.payments.august.style/assets/pdf/balance/bal-jxr-848.pdf",
+      "url": "https://payments.august.style/assets/pdf/balance/bal-jxr-848.pdf",
       "sha256": "a43b31b8a53cbf56387289729569938412f4cff74dcb94c344e1e441ce1a9090",
       "created": "2026-01-17T19:35:36.325070Z"
     }
@@ -147,7 +147,7 @@
       }
     ],
     "mode": "payment",
-    "return_url": "https://dev.payments.august.style/uid-jxr-848?session_id={CHECKOUT_SESSION_ID}",
+    "return_url": "https://payments.august.style/uid-jxr-848?session_id={CHECKOUT_SESSION_ID}",
     "ui_mode": "custom"
   },
   "checkout_session_2": {
@@ -163,7 +163,7 @@
       }
     ],
     "mode": "payment",
-    "return_url": "https://dev.payments.august.style/uid-jxr-848?session_id={CHECKOUT_SESSION_ID}",
+    "return_url": "https://payments.august.style/uid-jxr-848?session_id={CHECKOUT_SESSION_ID}",
     "ui_mode": "custom"
   },
   "project_scope_summary": "Spay and neuter mobile service delivery needs an application for on-demand service delivery.",

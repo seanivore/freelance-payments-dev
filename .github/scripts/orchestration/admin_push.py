@@ -52,6 +52,18 @@ except ImportError:
     print(json.dumps({"error": "Google libraries not installed. Run: pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client"}), file=sys.stderr)
     sys.exit(2)
 
+# Import pypdf for combining PDFs (using PdfWriter - PdfMerger was deprecated)
+try:
+    from pypdf import PdfWriter
+except Exception as e:
+    import traceback
+    print(f"ERROR: Failed to import pypdf: {type(e).__name__}: {e}", file=sys.stderr)
+    print(f"Traceback:", file=sys.stderr)
+    traceback.print_exc()
+    print(f"\nPython version: {sys.version}", file=sys.stderr)
+    print(f"Python path: {sys.executable}", file=sys.stderr)
+    sys.exit(2)
+
 
 # ============================================================================
 # STRIPE HELPER FUNCTIONS
@@ -673,7 +685,7 @@ def validate_google_token():
     client_secret = os.getenv('GOOGLE_CLIENT_SECRET')
     
     if not (refresh_token and client_id and client_secret):
-        auth_url = "https://freelance-payments-dev.vercel.app/api/google/auth"
+        auth_url = "https://freelance-payments-neon.vercel.app/api/google/auth"
         raise ValueError(
             f"GOOGLE_REFRESH_TOKEN, GOOGLE_CLIENT_ID, and GOOGLE_CLIENT_SECRET environment variables must be set.\n"
             f"To get a new refresh token:\n"
@@ -698,7 +710,7 @@ def validate_google_token():
         creds.refresh(Request())
         return True
     except Exception as e:
-        auth_url = "https://freelance-payments-dev.vercel.app/api/google/auth"
+        auth_url = "https://freelance-payments-neon.vercel.app/api/google/auth"
         error_msg = str(e)
         if 'invalid_grant' in error_msg or 'expired' in error_msg.lower() or 'revoked' in error_msg.lower():
             raise ValueError(
@@ -1196,7 +1208,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                         'id': f'kon-{clean_id}',
                         'pdf': f'assets/pdf/contract/{pdf_filename}',
                         'file_id': result['doc_id'],
-                        'url': f'https://dev.payments.august.style/assets/pdf/contract/{pdf_filename}',
+                        'url': f'https://payments.august.style/assets/pdf/contract/{pdf_filename}',
                         'sha256': result['sha256'],
                         'created': datetime.now(UTC).isoformat().replace('+00:00', 'Z')
                     }
@@ -1223,7 +1235,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                         'id': f'inv-{clean_id}',
                         'pdf': f'assets/pdf/invoice/{pdf_filename}',
                         'file_id': result['doc_id'],
-                        'url': f'https://dev.payments.august.style/assets/pdf/invoice/{pdf_filename}',
+                        'url': f'https://payments.august.style/assets/pdf/invoice/{pdf_filename}',
                         'sha256': result['sha256'],
                         'created': datetime.now(UTC).isoformat().replace('+00:00', 'Z')
                     }
@@ -1266,7 +1278,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                             'id': f'bal-{clean_id}',
                             'pdf': f'assets/pdf/balance/{pdf_filename}',
                             'file_id': result['doc_id'],
-                            'url': f'https://dev.payments.august.style/assets/pdf/balance/{pdf_filename}',
+                            'url': f'https://payments.august.style/assets/pdf/balance/{pdf_filename}',
                             'sha256': result['sha256'],
                             'created': datetime.now(UTC).isoformat().replace('+00:00', 'Z')
                         }
@@ -1277,7 +1289,58 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                 msg = f"Skipping Balance Invoice for {job_id}: Missing GOOGLE_TEMPLATE_BALANCE_ID"
                 print(f"WARNING: {msg}", file=sys.stderr)
                 stats['warnings'].append(msg)
-        
+
+        # 4. COMBINED PDF (merge contract + invoice + balance into single download)
+        combined_dir = invoice_dir.parent / 'combined'
+        combined_dir.mkdir(parents=True, exist_ok=True)
+        combined_filename = f'{job_id}.pdf'
+        combined_path = combined_dir / combined_filename
+
+        if not combined_path.exists():
+            # Collect paths of individual PDFs that exist
+            pdfs_to_merge = []
+            contract_pdf_path = contract_dir / f'kon-{clean_id}.pdf'
+            invoice_pdf_path = invoice_dir / f'inv-{clean_id}.pdf'
+            balance_pdf_path = invoice_dir.parent / 'balance' / f'bal-{clean_id}.pdf'
+
+            if contract_pdf_path.exists():
+                pdfs_to_merge.append(contract_pdf_path)
+            if invoice_pdf_path.exists():
+                pdfs_to_merge.append(invoice_pdf_path)
+            if balance_pdf_path.exists():
+                pdfs_to_merge.append(balance_pdf_path)
+
+            if len(pdfs_to_merge) >= 2:  # Need at least contract + invoice
+                try:
+                    print(f"Generating Combined PDF for {job_id}...", file=sys.stderr)
+                    writer = PdfWriter()
+                    for pdf_path in pdfs_to_merge:
+                        writer.append(str(pdf_path))
+
+                    with open(combined_path, 'wb') as output_file:
+                        writer.write(output_file)
+
+                    # Calculate SHA256 of combined PDF
+                    with open(combined_path, 'rb') as f:
+                        combined_sha256 = calculate_sha256(f.read())
+
+                    # Ensure docs.combined structure exists
+                    if 'combined' not in job_data['docs']:
+                        job_data['docs']['combined'] = {}
+
+                    job_data['docs']['combined'] = {
+                        'id': job_id,
+                        'pdf': f'assets/pdf/combined/{combined_filename}',
+                        'url': f'https://payments.august.style/assets/pdf/combined/{combined_filename}',
+                        'sha256': combined_sha256,
+                        'created': datetime.now(UTC).isoformat().replace('+00:00', 'Z')
+                    }
+                    print(f"Combined PDF generated: {combined_filename} ({len(pdfs_to_merge)} files merged)", file=sys.stderr)
+                except Exception as e:
+                    stats['errors'].append(f"Combined PDF generation failed for {job_id}: {str(e)}")
+            else:
+                print(f"Skipping Combined PDF for {job_id}: Not enough PDFs to merge ({len(pdfs_to_merge)} found)", file=sys.stderr)
+
         # Save updated job JSON
         try:
             save_job(job_id, job_data, jobs_dir)

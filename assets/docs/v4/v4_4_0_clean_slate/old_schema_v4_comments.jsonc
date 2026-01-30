@@ -170,7 +170,7 @@
             }
         ],
         "mode": "payment", // required, leave as is 
-        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]#completion", // required, updated "[uid-xxx-xxx]" with the product.id, no quotes, in the URL 
+        "return_url": "https://payments.august.style/[uid-xxx-xxx]#completion", // required, updated "[uid-xxx-xxx]" with the product.id, no quotes, in the URL 
         "ui_mode": "custom" // required, leave as is 
     },
     "checkout_session_2": {
@@ -186,7 +186,7 @@
             }
         ],
         "mode": "payment", // required, leave as is 
-        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]#completion", // required, updated "[uid-xxx-xxx]" with the product.id, no quotes, in the URL 
+        "return_url": "https://payments.august.style/[uid-xxx-xxx]#completion", // required, updated "[uid-xxx-xxx]" with the product.id, no quotes, in the URL 
         "ui_mode": "custom" // required, leave as is 
     },
     "project_scope_summary": null, // required, add a summary of the full, detailed project scope document 

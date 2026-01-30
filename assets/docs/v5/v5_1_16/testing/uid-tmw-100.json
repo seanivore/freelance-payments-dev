@@ -27,7 +27,7 @@
             "id": "kon-tmw-100",
             "pdf": "assets/pdf/contract/kon-tmw-100.pdf",
             "file_id": "1xcDmKbYDZH7nWpGWkRgFra-B0SNiFtCSHix8E5sJBp4",
-            "url": "https://dev.payments.august.style/assets/pdf/contract/kon-tmw-100.pdf",
+            "url": "https://payments.august.style/assets/pdf/contract/kon-tmw-100.pdf",
             "sha256": "2fd0671903f0c0f376da8245fdaea3d5f1da3ecfa6f24ca5804dd89b6c074d8e",
             "created": "2026-01-17T09:58:46.745844Z"
         },
@@ -35,7 +35,7 @@
             "id": "inv-tmw-100",
             "pdf": "assets/pdf/invoice/inv-tmw-100.pdf",
             "file_id": "1oIpFVCcv1vKEMXuGKEBlyLsTFSegr08gbRlbK89G0Vc",
-            "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-tmw-100.pdf",
+            "url": "https://payments.august.style/assets/pdf/invoice/inv-tmw-100.pdf",
             "sha256": "5e8c63236debf5c75cd1c8e14bb7a4e077dc72b01dcb8f0a78dcf4f2ffdc06e7",
             "created": "2026-01-17T09:58:51.550048Z"
         },
@@ -43,7 +43,7 @@
             "id": "bal-tmw-100",
             "pdf": "assets/pdf/balance/bal-tmw-100.pdf",
             "file_id": "1eVa8-3zxuDti09ZSNFIjkWwMvwnC_ZP-4l-MMRiqkFM",
-            "url": "https://dev.payments.august.style/assets/pdf/balance/bal-tmw-100.pdf",
+            "url": "https://payments.august.style/assets/pdf/balance/bal-tmw-100.pdf",
             "sha256": "b64ea9d4c2db40c2a7b6c1480a23494130e3529093a18e6c8decd79c24491ea2",
             "created": "2026-01-17T09:58:56.978808Z"
         }
@@ -163,7 +163,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://dev.payments.august.style/uid-tmw-100?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://payments.august.style/uid-tmw-100?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "checkout_session_2": {
@@ -179,7 +179,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://dev.payments.august.style/uid-tmw-100?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://payments.august.style/uid-tmw-100?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "project_scope_summary": "This is a test project for the purpose of testing the payment system. It is not a real project and should not be used for any other purpose.",

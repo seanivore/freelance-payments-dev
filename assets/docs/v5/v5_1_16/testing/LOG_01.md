@@ -36,7 +36,7 @@ This log tracks bugs and fixes during v5 testing. Follow these conventions:
 **Date**: 2026-01-17  
 **Status**: Open - Fix attempted but still failing
 
-**Issue**: After successful payment, Stripe redirects to `return_url` but gets 404 error. URL format: `https://dev.payments.august.style/uid-tst-001?session_id=cs_test_...`
+**Issue**: After successful payment, Stripe redirects to `return_url` but gets 404 error. URL format: `https://payments.august.style/uid-tst-001?session_id=cs_test_...`
 
 **Expected**: User should be redirected to completion page showing payment success  
 **Actual**: 404 error, fallback "Payment succeeded" page displays instead
@@ -58,7 +58,7 @@ This log tracks bugs and fixes during v5 testing. Follow these conventions:
 - `vercel.json`: Added rewrites configuration
 - `src/App.tsx`: Fixed `useEffect` dependency arrays and session handling
 
-**Console Error**: `GET https://dev.payments.august.style/uid-tst-001?session_id=cs_test_... 404 (Not Found)`
+**Console Error**: `GET https://payments.august.style/uid-tst-001?session_id=cs_test_... 404 (Not Found)`
 
 **Fixes Implemented** (2026-01-17):
 - Added `cleanUrls: false` to `vercel.json` to preserve query parameters

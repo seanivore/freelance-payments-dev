@@ -22,7 +22,7 @@
             "id": "kon-ngq-236",
             "pdf": "assets/pdf/contract/kon-ngq-236.pdf",
             "file_id": "1f_AXqmZU1qMlpDBBo46yTpPeT_zRSWs3Bu9aAFkzn-E",
-            "url": "https://dev.payments.august.style/assets/pdf/contract/kon-ngq-236.pdf",
+            "url": "https://payments.august.style/assets/pdf/contract/kon-ngq-236.pdf",
             "sha256": "0fc6ebe65e85c4074dbcd3b59e7225ee8f5d2b2d9c3e4074115657a523743dba",
             "created": "2026-01-17T13:01:41.499131Z"
         },
@@ -30,7 +30,7 @@
             "id": "inv-ngq-236",
             "pdf": "assets/pdf/invoice/inv-ngq-236.pdf",
             "file_id": "1ww4-4rZLqVnRgbBpfBJdj4hxUu1xa7cQHvr4_H8etEw",
-            "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-ngq-236.pdf",
+            "url": "https://payments.august.style/assets/pdf/invoice/inv-ngq-236.pdf",
             "sha256": "296a891eadb72c1a5dd9917530bd5354b571b030f47dfd2d754c2ce9ec3fdd2f",
             "created": "2026-01-17T13:01:45.638398Z"
         },
@@ -38,7 +38,7 @@
             "id": "bal-ngq-236",
             "pdf": "assets/pdf/balance/bal-ngq-236.pdf",
             "file_id": "1VtwPgtAY0vfBDXJTqdhebIdGHowauYAQgpLuvKVdME4",
-            "url": "https://dev.payments.august.style/assets/pdf/balance/bal-ngq-236.pdf",
+            "url": "https://payments.august.style/assets/pdf/balance/bal-ngq-236.pdf",
             "sha256": "a1baa2c54989c15b41cbbfc327d18ea55697b1ce31ea2018f07d74a0e2a30b5f",
             "created": "2026-01-17T13:01:50.052601Z"
         }
@@ -147,7 +147,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://dev.payments.august.style/uid-ngq-236?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://payments.august.style/uid-ngq-236?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "checkout_session_2": {
@@ -163,7 +163,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://dev.payments.august.style/uid-ngq-236?session_id={CHECKOUT_SESSION_ID}",
+        "return_url": "https://payments.august.style/uid-ngq-236?session_id={CHECKOUT_SESSION_ID}",
         "ui_mode": "custom"
     },
     "project_scope_summary": "Creating a month of video shorts for Bob's Carwash to post on social media.",

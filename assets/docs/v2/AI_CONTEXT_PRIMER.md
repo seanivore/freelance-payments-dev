@@ -130,7 +130,7 @@ Assess.
     - But when the user does that how/what/where takes the first step? 
     - I see so `contract-controller.js` does it, it has an API call 
     - "Call Vercel API to update JSON file via GitHub Actions" 
-    - But then how does Vercel know what to do with "https://freelance-payments-dev.vercel.app/api/sign-contract" ??
+    - But then how does Vercel know what to do with "https://freelance-payments-neon.vercel.app/api/sign-contract" ??
     - And I'm still confused on both "update_contract" and "update_job_json" seeming like they do the same thing 
   3. When we put together the workflows fresh
     - Previous workflow had push build multiple times 
@@ -154,12 +154,12 @@ Assess.
                         └──────────────────┘
 ```
 
-**1. GitHub Pages** (`dev.payments.august.style`)
+**1. GitHub Pages** (`payments.august.style`)
 - Hosts: HTML, CSS, JavaScript, static assets
 - What users see: Lookup form, contract, invoice, checkout
 - Cannot: Run server code, store secrets, process payments
 
-**2. Vercel** (`freelance-payments-dev.vercel.app`)
+**2. Vercel** (`freelance-payments-neon.vercel.app`)
 - Serverless functions: `/api/create-payment-intent`, `/api/sign-contract`, `/api/update-payment`, `/api/webhook`
 - Has: `STRIPE_SECRET_KEY` configured
 - Does: Creates payment intents, validates webhooks, triggers GitHub Actions

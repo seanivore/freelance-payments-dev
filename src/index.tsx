@@ -172,20 +172,21 @@ function LoginApp() {
               Horvath Payments
             </h1>
             <p className="text-portfolio-text-secondary text-sm">
-              Login to access your contract and invoices.
+              Sign contract, make payments, and download documents.
             </p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 className="w-full bg-portfolio-bg-primary border border-portfolio-border rounded-lg px-4 py-3 text-portfolio-text-primary placeholder-portfolio-text-secondary/50 transition-all duration-300 focus:outline-none focus:border-portfolio-accent-mauve focus:shadow-glow"
                 placeholder="Last Name"
                 value={lastName}
                 onChange={e => setLastName(e.target.value)}
                 disabled={loading}
+                autoFocus
               />
             </div>
             <div>

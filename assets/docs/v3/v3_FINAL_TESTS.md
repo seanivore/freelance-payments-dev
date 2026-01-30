@@ -112,20 +112,20 @@ In our most recent session,
 
 ```plaintext 
 Failed to load resource: the server responded with a status of 404 ()Understand this error
-uid-sst-846#contract:1 Access to fetch at 'https://freelance-payments-dev.vercel.app/api/track-event' from origin 'https://dev.payments.august.style' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
-freelance-payments-dev.vercel.app/api/track-event:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+uid-sst-846#contract:1 Access to fetch at 'https://freelance-payments-neon.vercel.app/api/track-event' from origin 'https://payments.august.style' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+freelance-payments-neon.vercel.app/api/track-event:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
 contract-controller.js:168 Failed to track contract loaded: TypeError: Failed to fetch
     at trackContractLoaded (contract-controller.js:158:13)
     at init (contract-controller.js:221:13)
 trackContractLoaded @ contract-controller.js:168Understand this warning
-uid-sst-846#contract:1 Access to fetch at 'https://freelance-payments-dev.vercel.app/api/track-event' from origin 'https://dev.payments.august.style' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
-freelance-payments-dev.vercel.app/api/track-event:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+uid-sst-846#contract:1 Access to fetch at 'https://freelance-payments-neon.vercel.app/api/track-event' from origin 'https://payments.august.style' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+freelance-payments-neon.vercel.app/api/track-event:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
 contract-controller.js:168 Failed to track contract loaded: TypeError: Failed to fetch
     at trackContractLoaded (contract-controller.js:158:13)
     at init (contract-controller.js:221:13)
 trackContractLoaded @ contract-controller.js:168Understand this warning
-uid-sst-846#contract:1 Access to fetch at 'https://freelance-payments-dev.vercel.app/api/track-event' from origin 'https://dev.payments.august.style' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
-freelance-payments-dev.vercel.app/api/track-event:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
+uid-sst-846#contract:1 Access to fetch at 'https://freelance-payments-neon.vercel.app/api/track-event' from origin 'https://payments.august.style' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+freelance-payments-neon.vercel.app/api/track-event:1  Failed to load resource: net::ERR_FAILEDUnderstand this error
 invoice-controller.js:98 Failed to track invoice viewed: TypeError: Failed to fetch
     at trackInvoiceViewed (invoice-controller.js:88:13)
     at init (invoice-controller.js:243:13)
@@ -216,7 +216,7 @@ The artifact I was editing was from the last successful tests. I saw that the `s
     - "required" for `..._checkout_session.billing_address_collection`
     - "always" for `..._checkout_session.customer_creation` and `_checkout_session.redirect_on_completion`
     - "payment" for `..._checkout_session.mode`
-    - "https://dev.payments.august.style/payment-success" for `..._checkout_session.return_url` 
+    - "https://payments.august.style/payment-success" for `..._checkout_session.return_url` 
     - "pay" for `..._checkout_session.submit_type`
     - "embedded" for `..._checkout_session.embedded` 
     - true set for `..._checkout_session.name_collection.individual.enabled`, `..._checkout_session.name_collection.business.enabled`, and `..._checkout_session.name_collection.business.optional` 

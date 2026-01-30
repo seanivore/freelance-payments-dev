@@ -69,7 +69,7 @@
 
   1. **You create** a JSON file per client project in `assets/jobs/`
   2. **GitHub Actions** processes JSON → Creates Stripe products, generates manifest
-  3. **Client visits** `dev.payments.august.style` → Enters last name + keyword
+  3. **Client visits** `payments.august.style` → Enters last name + keyword
   4. **State machine** routes them: Contract → Invoice → Checkout → Completion
   5. **Stripe webhook** updates JSON when payment succeeds
 
@@ -83,11 +83,11 @@
     - All your static assets (images, fonts, etc.)
 
   **What users see:**
-    - Users visit `dev.payments.august.style`
+    - Users visit `payments.august.style`
     - They see the lookup form, contract, invoice, checkout page
     - This is the **public-facing website**
 
-  2. Vercel (`freelance-payments-dev.vercel.app`) - BACKEND API
+  2. Vercel (`freelance-payments-neon.vercel.app`) - BACKEND API
   **What it hosts:**
     - Serverless functions in `api/` directory:
     - `/api/create-payment-intent` - Creates Stripe PaymentIntent
@@ -104,7 +104,7 @@
 ### How Hosts Work Together 
 
 ```
-User visits: dev.payments.august.style
+User visits: payments.august.style
      ↓
 Frontend (GitHub Pages) loads HTML/JS
      ↓
@@ -112,9 +112,9 @@ User fills out lookup form that matches Job JSON file
      ↓
 404-Redirect Dynamically Creates Contract & Invoice from JSON Jobs 
      ↓
-Frontend call: freelance-payments-dev.vercel.app/api/ for viewed contract, signed, downloaded 
+Frontend call: freelance-payments-neon.vercel.app/api/ for viewed contract, signed, downloaded 
      ↓
-Payment screen triggers frontend call: freelance-payments-dev.vercel.app/api/create-payment-intent
+Payment screen triggers frontend call: freelance-payments-neon.vercel.app/api/create-payment-intent
      ↓
 Vercel function creates PaymentIntent & returns client_secret to frontend
      ↓
@@ -122,20 +122,20 @@ Frontend shows Stripe Payment Element from JSON provided stripe_price_id
      ↓
 User completes payment 
      ↓
-Stripe sends webhook to: freelance-payments-dev.vercel.app/api/webhook
+Stripe sends webhook to: freelance-payments-neon.vercel.app/api/webhook
      ↓
 Vercel function updates JSON via GitHub Actions 
 ```
 ### Hosts Summary 
 
   * **FRONTEND:** GitHub Pages Host
-    - URL `dev.payments.august.style` 
+    - URL `payments.august.style` 
     - Purpose is what users see and interact with
   * **BACKEND API:** Vercel Host & Stripe API 
-    - URL `freelance-payments-dev.vercel.app` 
+    - URL `freelance-payments-neon.vercel.app` 
     - Purpose is handles secure operations, payments 
   * **WEBHOOK:** Vercel host 
-    - URL `freelance-payments-dev.vercel.app/api/webhook`
+    - URL `freelance-payments-neon.vercel.app/api/webhook`
     - Purpose is receives Stripe events
 
 ### Setup & Infrastructure 

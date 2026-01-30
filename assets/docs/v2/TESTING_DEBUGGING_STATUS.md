@@ -8,7 +8,7 @@
 ### Step 1: Manifest Generation - SUCCESS
 - ✅ Manifest generated correctly at `assets/js/manifest.json`
 - ✅ Contains test job: `testclient-test-single` → `assets/jobs/test-single-payment-v2.json`
-- ✅ Accessible on live site: `https://dev.payments.august.style/assets/js/manifest.json`
+- ✅ Accessible on live site: `https://payments.august.style/assets/js/manifest.json`
 - ✅ Fixed path issue: `generate_manifest.py` now uses absolute paths from project root
 
 **Key Fixes:**

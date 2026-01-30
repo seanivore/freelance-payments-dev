@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-A **freelance payment collection micro-site** (`dev.payments.august.style`) that automates contract generation, invoice creation, payment processing, and document management using:
+A **freelance payment collection micro-site** (`payments.august.style`) that automates contract generation, invoice creation, payment processing, and document management using:
 
 - **GitHub Pages** for static frontend hosting (SPA with hash routing)
 - **Vercel** for serverless API functions
@@ -180,7 +180,7 @@ A **freelance payment collection micro-site** (`dev.payments.august.style`) that
     "discounts": [{"coupon": null}],
     "line_items": [{"price": null, "quantity": 1}],
     "mode": "payment", 
-    "return_url": "https://dev.payments.august.style/{job_id}#completion",
+    "return_url": "https://payments.august.style/{job_id}#completion",
     "ui_mode": "custom"
   },
 
@@ -190,7 +190,7 @@ A **freelance payment collection micro-site** (`dev.payments.august.style`) that
     "discounts": [{"coupon": null}],
     "line_items": [{"price": null, "quantity": 1}],
     "mode": "payment",
-    "return_url": "https://dev.payments.august.style/{job_id}#completion",
+    "return_url": "https://payments.august.style/{job_id}#completion",
     "ui_mode": "custom"
   },
 
@@ -205,7 +205,7 @@ A **freelance payment collection micro-site** (`dev.payments.august.style`) that
 ### System Flow
 
 ```
-User visits dev.payments.august.style
+User visits payments.august.style
   ↓
 Login form (index.html) → Lookup in manifest.json
   ↓
@@ -218,12 +218,12 @@ User actions → Vercel API → GitHub Actions → JSON updates
 
 ### Component Responsibilities
 
-**1. GitHub Pages** (`dev.payments.august.style`)
+**1. GitHub Pages** (`payments.august.style`)
 - Static hosting (HTML, CSS, JavaScript, PDFs)
 - SPA routing via `404.html` (serves `job.html` for job URLs)
 - Hash-based navigation (`#contract`, `#invoice`, `#payment-1`, `#completion`)
 
-**2. Vercel** (`freelance-payments-dev.vercel.app`)
+**2. Vercel** (`freelance-payments-neon.vercel.app`)
 - Serverless functions for secure operations:
   - `/api/create-checkout-session` - Creates Stripe Checkout Sessions on-demand
   - `/api/sign-contract` - Handles contract signing
@@ -530,7 +530,7 @@ freelance-payments/
 ### Vercel Environment Variables
 - Same as above, plus:
 - `STRIPE_WEBHOOK_SECRET` - Stripe webhook signature secret
-- `GOOGLE_REDIRECT_URI` - OAuth callback URL (`https://freelance-payments-dev.vercel.app/api/google/callback`)
+- `GOOGLE_REDIRECT_URI` - OAuth callback URL (`https://freelance-payments-neon.vercel.app/api/google/callback`)
 
 ---
 
