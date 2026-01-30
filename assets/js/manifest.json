@@ -1,4 +1,11 @@
 {
-  "jobs": {},
-  "generated_at": "2026-01-30T10:51:07.110934Z"
+  "jobs": {
+    "valencia-website-photography": {
+      "file_path": "assets/jobs/uid-ovs-480.json",
+      "job_id": "uid-ovs-480",
+      "login_keyword": "website-photography",
+      "login_name": "Valencia"
+    }
+  },
+  "generated_at": "2026-01-30T10:58:30.701991Z"
 }
