@@ -58,6 +58,7 @@ jobs:
           GOOGLE_TEMPLATE_INVOICE_ID: ${{ secrets.GOOGLE_TEMPLATE_INVOICE_ID }}
           GOOGLE_TEMPLATE_BALANCE_ID: ${{ secrets.GOOGLE_TEMPLATE_BALANCE_ID }}
           GOOGLE_TEMP_FOLDER_ID: ${{ secrets.GOOGLE_TEMP_FOLDER_ID }}
+          SITE_URL: https://dev.payments.august.style
         run: |
           python3 .github/scripts/orchestration/admin_push.py
 
