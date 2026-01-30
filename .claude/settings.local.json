@@ -5,7 +5,13 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(gh run list:*)",
-      "Bash(gh run view:*)"
+      "Bash(gh run view:*)",
+      "Bash(git -C /Users/seanivore/Development/freelance-payments log --oneline --all -20)",
+      "Bash(git -C /Users/seanivore/Development/freelance-payments-dev log --oneline --all -20)",
+      "Bash(git -C /Users/seanivore/Development/freelance-payments diff freelance-payments-dev freelance-payments --stat)",
+      "Bash(wc:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ]
   }
 }
