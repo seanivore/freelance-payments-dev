@@ -1,11 +1,11 @@
 {
   "jobs": {
-    "valencia-website-photography": {
-      "file_path": "assets/jobs/uid-ovs-480.json",
-      "job_id": "uid-ovs-480",
-      "login_keyword": "website-photography",
-      "login_name": "Valencia"
+    "jim-packaging-plant": {
+      "file_path": "assets/jobs/uid-out-706.json",
+      "job_id": "uid-out-706",
+      "login_keyword": "packaging-plant",
+      "login_name": "jim"
     }
   },
-  "generated_at": "2026-01-30T11:12:25.651552Z"
+  "generated_at": "2026-01-30T11:25:13.029262Z"
 }
