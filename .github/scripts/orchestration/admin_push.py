@@ -1204,7 +1204,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                     result = generate_contract_pdf(drive_service, docs_service, job_data, contract_template_id)
                     with open(pdf_path, 'wb') as f: f.write(result['pdf_bytes'])
                     
-                    site_url = os.getenv('SITE_URL', 'https://payments.august.style')
+                    site_url = os.getenv('SITE_URL', 'https://dev.payments.august.style')
                     job_data['docs']['contract'] = {
                         'id': f'kon-{clean_id}',
                         'pdf': f'assets/pdf/contract/{pdf_filename}',
@@ -1232,7 +1232,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                     result = generate_invoice_pdf(drive_service, docs_service, job_data, invoice_template_id, 1)
                     with open(pdf_path, 'wb') as f: f.write(result['pdf_bytes'])
                     
-                    site_url = os.getenv('SITE_URL', 'https://payments.august.style')
+                    site_url = os.getenv('SITE_URL', 'https://dev.payments.august.style')
                     job_data['docs']['invoice'] = {
                         'id': f'inv-{clean_id}',
                         'pdf': f'assets/pdf/invoice/{pdf_filename}',
@@ -1276,7 +1276,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                         result = generate_invoice_pdf(drive_service, docs_service, job_data, invoice_balance_template_id, 2)
                         with open(pdf_path, 'wb') as f: f.write(result['pdf_bytes'])
                         
-                        site_url = os.getenv('SITE_URL', 'https://payments.august.style')
+                        site_url = os.getenv('SITE_URL', 'https://dev.payments.august.style')
                         job_data['docs']['balance'] = {
                             'id': f'bal-{clean_id}',
                             'pdf': f'assets/pdf/balance/{pdf_filename}',
@@ -1331,7 +1331,7 @@ def generate_pdfs_for_new_jobs(jobs_dir: str, new_job_ids: list) -> dict:
                     if 'combined' not in job_data['docs']:
                         job_data['docs']['combined'] = {}
 
-                    site_url = os.getenv('SITE_URL', 'https://payments.august.style')
+                    site_url = os.getenv('SITE_URL', 'https://dev.payments.august.style')
                     job_data['docs']['combined'] = {
                         'id': job_id,
                         'pdf': f'assets/pdf/combined/{combined_filename}',

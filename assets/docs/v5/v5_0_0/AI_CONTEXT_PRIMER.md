@@ -441,7 +441,7 @@ _Updated 2026-01-13 for v5 schema_
             }
         ],
         "mode": "payment", // provided
-        "return_url": "https://payments.august.style/[uid-xxx-xxx]#completion-1", // required, update [uid-xxx-xxx] with actual product.id
+        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]#completion-1", // required, update [uid-xxx-xxx] with actual product.id
         "ui_mode": "custom" // provided
     },
     "checkout_session_2": { // facilitates on-demand price2 checkout session initialization
@@ -457,7 +457,7 @@ _Updated 2026-01-13 for v5 schema_
             }
         ],
         "mode": "payment", // provided
-        "return_url": "https://payments.august.style/[uid-xxx-xxx]#completion-2", // required, update [uid-xxx-xxx] with actual product.id
+        "return_url": "https://dev.payments.august.style/[uid-xxx-xxx]#completion-2", // required, update [uid-xxx-xxx] with actual product.id
         "ui_mode": "custom" // provided
     },
     "project_scope_summary": null, // required, summary of deliverable

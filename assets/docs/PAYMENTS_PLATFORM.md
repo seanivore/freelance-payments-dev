@@ -263,7 +263,7 @@ setData(prev => ({
 **`api/create-checkout-session.js`** - Stripe Checkout Session Creation
 - Creates Stripe checkout session on-demand with `ui_mode: 'custom'`
 - Returns `client_secret` for Stripe Elements
-- Sets `return_url` template: `https://payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
+- Sets `return_url` template: `https://dev.payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
 - Includes `payment_number` in metadata for routing logic
 
 **`api/track-event.js`** - Event Tracking Endpoint (Single Workflow Dispatcher)
@@ -655,7 +655,7 @@ POST /api/track-event
 
 ### Return URL Handling
 
-**Format**: `https://payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
+**Format**: `https://dev.payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
 
 **Process** (`src/App.tsx`):
 1. Check for `session_id` query param on mount

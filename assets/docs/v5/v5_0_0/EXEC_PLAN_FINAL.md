@@ -457,7 +457,7 @@ App.tsx (Main Router/State Machine)
 
 - Use Stripe Custom UI (not embedded)
 - Checkout sessions created on-demand (not pre-created)
-- Return URLs: `https://payments.august.style/${job_id}#completion-1` and `#completion-2`
+- Return URLs: `https://dev.payments.august.style/${job_id}#completion-1` and `#completion-2`
 - Handle `client_secret` from API response
 - Use Stripe Elements for payment form
 
@@ -826,7 +826,7 @@ App.tsx (Main Router/State Machine)
 **Return URL Template**: 
 - Uses `{CHECKOUT_SESSION_ID}` template variable in `return_url`
 - Stripe replaces this with actual session ID before redirecting
-- Format: `https://payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
+- Format: `https://dev.payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
 
 **Key Differences from Hash-Based Routing**:
 - Old: `#completion-1` or `#completion-2` hash-based

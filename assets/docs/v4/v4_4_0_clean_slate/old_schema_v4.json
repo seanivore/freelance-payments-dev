@@ -150,7 +150,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/[product_id_here]#completion",
+        "return_url": "/[product_id_here]#completion",
         "ui_mode": "custom"
     },
     "checkout_session_2": {
@@ -166,7 +166,7 @@
             }
         ],
         "mode": "payment",
-        "return_url": "https://payments.august.style/[product_id_here]#completion",
+        "return_url": "/[product_id_here]#completion",
         "ui_mode": "custom"
     },
     "project_scope_summary": null,

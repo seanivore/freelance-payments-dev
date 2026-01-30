@@ -182,8 +182,8 @@ Rest of the placeholders that we are still using.
     - Determines how long, if ever again, the completion page will be shown again 
 
   + Suggested URLs where "uid-xxx-xxx" is the job's unique ID (product.id) 
-    - `checkout_session_1.return_url`: "https://payments.august.style/uid-xxx-xxx#completion-1"
-    - `checkout_session_2.return_url`: "https://payments.august.style/uid-xxx-xxx#completion-2"
+    - `checkout_session_1.return_url`: "/uid-xxx-xxx#completion-1"
+    - `checkout_session_2.return_url`: "/uid-xxx-xxx#completion-2"
 
   + After payment_1 is completed 
     - A **#completion-1** thank you page loads 

@@ -180,7 +180,7 @@ A **freelance payment collection micro-site** (`payments.august.style`) that aut
     "discounts": [{"coupon": null}],
     "line_items": [{"price": null, "quantity": 1}],
     "mode": "payment", 
-    "return_url": "https://payments.august.style/{job_id}#completion",
+    "return_url": "/{job_id}#completion",
     "ui_mode": "custom"
   },
 
@@ -190,7 +190,7 @@ A **freelance payment collection micro-site** (`payments.august.style`) that aut
     "discounts": [{"coupon": null}],
     "line_items": [{"price": null, "quantity": 1}],
     "mode": "payment",
-    "return_url": "https://payments.august.style/{job_id}#completion",
+    "return_url": "/{job_id}#completion",
     "ui_mode": "custom"
   },
 

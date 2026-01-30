@@ -894,7 +894,7 @@ session = stripe.checkout.Session.create(
   discounts=[{"coupon": "uid-amx-856-coupon"}],
   line_items=[{"price": "uid-amx-856-1", "quantity": 1}],
   mode="payment",
-  return_url="https://payments.august.style/payment-success.html",
+  return_url="https://dev.payments.august.style/payment-success.html",
   submit_type="pay",
   ui_mode="embedded",
 )
