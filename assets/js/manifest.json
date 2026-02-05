@@ -1,11 +1,4 @@
 {
-  "jobs": {
-    "jim-packaging-plant": {
-      "file_path": "assets/jobs/uid-out-706.json",
-      "job_id": "uid-out-706",
-      "login_keyword": "packaging-plant",
-      "login_name": "jim"
-    }
-  },
-  "generated_at": "2026-01-30T11:25:13.029262Z"
+  "jobs": {},
+  "generated_at": "2026-02-05T10:59:45.288026Z"
 }
