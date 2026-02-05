@@ -27,6 +27,8 @@ A **freelance payment collection micro-site** (`payments.august.style`) that aut
 9. [Development Philosophy](#development-philosophy)
 10. [Setup & Configuration](#setup--configuration)
 11. [Common Tasks & Debugging](#common-tasks--debugging)
+11. [Update Live with Dev Tested Feature](#update-live-with-tested-dev-feature)
+12. [Common Tasks & Debugging](#common-tasks--debugging)
 
 ---
 
@@ -263,7 +265,7 @@ setData(prev => ({
 **`api/create-checkout-session.js`** - Stripe Checkout Session Creation
 - Creates Stripe checkout session on-demand with `ui_mode: 'custom'`
 - Returns `client_secret` for Stripe Elements
-- Sets `return_url` template: `https://dev.payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
+- Sets `return_url` template: `https://payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
 - Includes `payment_number` in metadata for routing logic
 
 **`api/track-event.js`** - Event Tracking Endpoint (Single Workflow Dispatcher)
@@ -655,7 +657,7 @@ POST /api/track-event
 
 ### Return URL Handling
 
-**Format**: `https://dev.payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
+**Format**: `https://payments.august.style/${job_id}?session_id={CHECKOUT_SESSION_ID}`
 
 **Process** (`src/App.tsx`):
 1. Check for `session_id` query param on mount
@@ -968,6 +970,205 @@ Use `git smart-push` for local pushes. It stashes any local changes, rebases fro
 
 ---
 
+## Update Live with Tested Dev Feature
+
+* **When a feature is ready to promote from dev to production**
+
+- [ ] Feature fully tested on dev environment
+- [ ] All workflows run successfully
+- [ ] Full user flow tested (login → contract → invoice → payment1 → balance → payment2)
+- [ ] No console errors
+- [ ] Mobile and desktop tested
+- [ ] Changelog updated with all changes
+
+### Step 1: Prepare Production Repo
+
+```bash
+cd ~/Development/freelance-payments
+
+# Make sure we're up to date
+git pull origin freelance-payments
+
+# Create backup branch (just in case)
+git checkout -b backup-$(date +%Y%m%d)
+git push origin backup-$(date +%Y%m%d)
+
+# Return to main branch
+git checkout freelance-payments
+```
+
+### Step 2: Overwrite Code Directories
+
+```bash
+# From production repo directory
+cd ~/Development/freelance-payments
+
+# Remove old code directories
+rm -rf src/
+rm -rf api/
+rm -rf .github/
+
+# Copy new code from dev
+cp -r ../freelance-payments-dev/src ./
+cp -r ../freelance-payments-dev/api ./
+cp -r ../freelance-payments-dev/.github ./
+
+# Copy updated templates (if changed)
+cp -r ../freelance-payments-dev/assets/templates ./assets/
+```
+
+### Step 3: Copy Config Files
+
+```bash
+# Copy config files
+cp ../freelance-payments-dev/package.json ./
+cp ../freelance-payments-dev/package-lock.json ./
+cp ../freelance-payments-dev/vite.config.ts ./
+cp ../freelance-payments-dev/tsconfig.json ./
+cp ../freelance-payments-dev/tsconfig.node.json ./
+cp ../freelance-payments-dev/tailwind.config.js ./
+cp ../freelance-payments-dev/postcss.config.js ./
+cp ../freelance-payments-dev/index.html ./
+cp ../freelance-payments-dev/job.html ./
+cp ../freelance-payments-dev/404.html ./
+
+# Copy job creation resources
+cp ../freelance-payments-dev/assets/docs/uid-xxx-xxx.json ./assets/docs/
+cp ../freelance-payments-dev/assets/docs/GUIDE_uid-xxx-xxx.json.md ./assets/docs/
+cp -r ../freelance-payments-dev/assets/scripts ./assets/
+```
+
+### Step 4: Restore Production-Specific Files
+
+```bash
+# Restore CNAME (should not have been overwritten, but verify)
+echo "payments.august.style" > CNAME
+```
+
+**File**: `vercel.json` — Verify CORS is production domain:
+```json
+"Access-Control-Allow-Origin": "https://payments.august.style"
+```
+
+**File**: `src/lib/api.ts` — Restore production API URL:
+```typescript
+return 'https://freelance-payments-neon.vercel.app';
+```
+
+### Step 5: Install and Build
+
+```bash
+# Install any new dependencies
+npm install
+
+# Test build locally
+npm run build
+
+# If build fails, fix issues before pushing
+```
+
+### Step 6: Commit and Push
+
+```bash
+git add .
+git commit -m "Promote from dev: [feature description]"
+git push origin freelance-payments
+```
+
+### Step 7: Verify Production Deployment
+
+- [ ] GitHub Actions `admin-push.yml` runs successfully
+- [ ] GitHub Pages deploys
+- [ ] Vercel deploys
+- [ ] Test with existing client job (just login, don't make changes)
+- [ ] Verify no console errors
+
+---
+
+## Rollback Procedure
+
+If something goes wrong:
+
+```bash
+cd ~/Development/freelance-payments
+
+# Find your backup branch
+git branch -a | grep backup
+
+# Reset to backup
+git checkout freelance-payments
+git reset --hard backup-YYYYMMDD
+
+# Force push (careful!)
+git push --force origin freelance-payments
+```
+
+---
+
+# Part 6: Changelog Protocol
+
+Maintain detailed changelogs to ensure nothing is missed during updates.
+
+## Changelog Categories
+
+| Tag          | Description                                       |
+|--------------|---------------------------------------------------|
+| `[CODE]`     | Changes to `src/`, `api/`, `.github/`             |
+| `[CONFIG]`   | Changes to `package.json`, `vite.config.ts`, etc. |
+| `[SCHEMA]`   | Changes to JSON schema structure                  |
+| `[TEMPLATE]` | Changes to `assets/templates/`                    |
+| `[DOCS]`     | Documentation updates                             |
+
+## Changelog Format
+
+Create `CHANGELOG.md` in the dev repo:
+
+```markdown
+# Changelog
+
+## [Unreleased]
+
+### [CODE] Component Updates
+- Updated SignatureModal to fix iOS keyboard issues
+- Added popstate listener for back-button event handling
+
+### [SCHEMA] JSON Schema Changes
+- Added `docs.contract.signed_pdf` field
+- Added `docs.contract.signed_url` field
+
+### [CONFIG] Dependency Updates
+- Added `pypdf` and `reportlab` to workflow dependencies
+
+## [v6.1.0] - 2026-02-XX
+
+### [CODE] Email PDF Implementation
+- Added email_sender.py utility
+- Added email_templates.py
+- Integrated email dispatch into user_exit_events.py
+```
+
+## Pre-Promotion Review
+
+Before each promotion:
+1. Review `CHANGELOG.md` for all changes since last promotion
+2. Verify all `[SCHEMA]` changes are reflected in `assets/docs/uid-xxx-xxx.json`
+3. Mark changelog items as promoted after successful deployment
+
+### Promotion Checklist (Recurring)
+
+- [ ] All tests pass on dev
+- [ ] Changelog updated
+- [ ] Create backup branch on prod
+- [ ] Copy code directories
+- [ ] Copy config files
+- [ ] Restore production-specific files
+- [ ] npm install && npm run build
+- [ ] Commit and push
+- [ ] Verify deployment
+- [ ] Mark changelog items as promoted
+
+---
+
 ## Key Principles (Remember These)
 
 1. **Always Fresh JSON**: Never cache job data. Always fetch from `/assets/jobs/${job_id}.json`
@@ -994,5 +1195,3 @@ Use `git smart-push` for local pushes. It stashes any local changes, rebases fro
 - **Original Architecture**: `assets/docs/RESOURCES/OG_JSON_ARCH_PORTFOLIO.md`
 
 ---
-
-_This document consolidates information from `AI_CONTEXT_PRIMER.md`, `CURRENT_STATE.md`, `PROJECT_OVERVIEW.md`, `NECESSARY_CONTEXT.md`, and `EXEC_PLAN_FINAL.md`, eliminating outdated information, updating what needs to be updated, and outputting it into a single comprehensive reference for future AI agents and developers working on this project._
