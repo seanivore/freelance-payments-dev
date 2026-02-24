@@ -1,4 +1,11 @@
 {
-  "jobs": {},
-  "generated_at": "2026-02-24T09:38:10.829183Z"
+  "jobs": {
+    "noah-noahs-ai-chatbot": {
+      "file_path": "assets/jobs/uid-nop-470.json",
+      "job_id": "uid-nop-470",
+      "login_keyword": "noahs-ai-chatbot",
+      "login_name": "Noah"
+    }
+  },
+  "generated_at": "2026-02-24T09:40:23.848000Z"
 }

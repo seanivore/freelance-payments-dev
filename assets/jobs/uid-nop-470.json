@@ -9,7 +9,7 @@
     "signatures": {
       "contractor": {
         "legal_name": "Sean August Horvath",
-        "signed_date": null
+        "signed_date": "2026-02-24T09:40:03.390226Z"
       },
       "client": {
         "legal_name": null,
@@ -19,38 +19,45 @@
   },
   "docs": {
     "contract": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "kon-nop-470",
+      "pdf": "assets/pdf/contract/kon-nop-470.pdf",
+      "file_id": "1_aiJZI5KdjWFqef6UhYl6RsQAk8S2btnD7lPzE4WLrE",
+      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-nop-470.pdf",
+      "sha256": "8eec952e667e341fba10e3efad8dddd00cee1c1d63982dd1ee44f6e54b170994",
+      "created": "2026-02-24T09:40:11.119405Z"
     },
     "invoice": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "inv-nop-470",
+      "pdf": "assets/pdf/invoice/inv-nop-470.pdf",
+      "file_id": "1S9GgU5_hgUFTqRVoOeK1vwzAxU9mRx66aX6dSI3tg8g",
+      "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-nop-470.pdf",
+      "sha256": "fa473a043c9286a5db2ee9d8bc43ab06674d5f891a5029792aed1c38ae510769",
+      "created": "2026-02-24T09:40:18.697580Z"
     },
     "balance": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "bal-nop-470",
+      "pdf": "assets/pdf/balance/bal-nop-470.pdf",
+      "file_id": "14g-IQIa2UMO_psIh3tpLVVtIkkS3SoTILOP0u_A4DgY",
+      "url": "https://dev.payments.august.style/assets/pdf/balance/bal-nop-470.pdf",
+      "sha256": "fa4c6409af8f53c303dfaf666b4708c966b9d2e623e837503d139feb1cf7d9cd",
+      "created": "2026-02-24T09:40:23.823344Z"
+    },
+    "combined": {
+      "id": "uid-nop-470",
+      "pdf": "assets/pdf/combined/uid-nop-470.pdf",
+      "url": "https://dev.payments.august.style/assets/pdf/combined/uid-nop-470.pdf",
+      "sha256": "34df08a825dfa23e17c17228a1be580f3fdfc9f1ce27dc0e57ecd2665df78af2",
+      "created": "2026-02-24T09:40:23.846955Z"
     }
   },
   "state": {
     "objects": {
-      "created": null,
-      "product": null,
-      "price_1": null,
-      "price_2": null,
-      "customer": null,
-      "coupon": null
+      "created": "2026-02-24T09:40:03.390226Z",
+      "product": "uid-nop-470",
+      "price_1": "price_1T4I639fljwH26CPlZfYKqPc",
+      "price_2": "price_1T4I649fljwH26CPG7afpEmE",
+      "customer": "cus-nop-470",
+      "coupon": "cou-nop-470"
     },
     "client_status": {
       "logged_in": null,
@@ -115,7 +122,7 @@
         "uid-nop-470"
       ]
     },
-    "id": ""
+    "id": "price_1T4I639fljwH26CPlZfYKqPc"
   },
   "price2": {
     "count": 2,
@@ -132,7 +139,7 @@
         "uid-nop-470"
       ]
     },
-    "id": ""
+    "id": "price_1T4I649fljwH26CPG7afpEmE"
   },
   "checkout_session_1": {
     "discounts": [
@@ -142,7 +149,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1T4I639fljwH26CPlZfYKqPc",
         "quantity": 1
       }
     ],
@@ -158,7 +165,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1T4I649fljwH26CPG7afpEmE",
         "quantity": 1
       }
     ],
