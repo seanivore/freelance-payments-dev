@@ -1,0 +1,171 @@
+{
+  "project": "Customized AI Chatbot Development",
+  "contract": {
+    "work_start": "2026-02-24",
+    "work_end": "2026-02-24",
+    "legal_jurisdiction": "Massachusetts",
+    "maintenance_period_months": 3,
+    "maintenance_monthly_fee": 150,
+    "signatures": {
+      "contractor": {
+        "legal_name": "Sean August Horvath",
+        "signed_date": null
+      },
+      "client": {
+        "legal_name": null,
+        "signed_date": null
+      }
+    }
+  },
+  "docs": {
+    "contract": {
+      "id": null,
+      "pdf": null,
+      "file_id": null,
+      "url": null,
+      "sha256": null,
+      "created": null
+    },
+    "invoice": {
+      "id": null,
+      "pdf": null,
+      "file_id": null,
+      "url": null,
+      "sha256": null,
+      "created": null
+    },
+    "balance": {
+      "id": null,
+      "pdf": null,
+      "file_id": null,
+      "url": null,
+      "sha256": null,
+      "created": null
+    }
+  },
+  "state": {
+    "objects": {
+      "created": null,
+      "product": null,
+      "price_1": null,
+      "price_2": null,
+      "customer": null,
+      "coupon": null
+    },
+    "client_status": {
+      "logged_in": null,
+      "contract_signed": null,
+      "invoice": null,
+      "payment_1": null,
+      "balance": null,
+      "payment_2": null
+    }
+  },
+  "product": {
+    "name": "AI Development Services",
+    "active": true,
+    "description": "Development of a customized AI chatbot for the client's business.",
+    "id": "uid-nop-470",
+    "login_name": "Noah",
+    "login_keyword": "noahs-ai-chatbot",
+    "service_usd": 12298800,
+    "total_payments": 2,
+    "discount_usd": 351100,
+    "type": "service",
+    "unit_label": "Payment"
+  },
+  "customer": {
+    "name": "Noah Patel",
+    "business": "Noah's LLC",
+    "title": "CEO",
+    "email": "noah@nop.com",
+    "phone": "424-295-4444",
+    "id": "cus-nop-470",
+    "address": {
+      "city": "New York",
+      "line1": "123 Main St",
+      "state": "NY",
+      "postal_code": "10001",
+      "country": "US"
+    }
+  },
+  "coupon": {
+    "amount_off": 351100,
+    "applies_to": {
+      "products": [
+        "uid-nop-470"
+      ]
+    },
+    "currency": "usd",
+    "duration": "once",
+    "id": "cou-nop-470",
+    "max_redemptions": 1,
+    "name": "NOAH-CHATBOT-DISCOUNT"
+  },
+  "price1": {
+    "count": 1,
+    "currency": "usd",
+    "unit_amount": 6149400,
+    "active": true,
+    "billing_scheme": "per_unit",
+    "pay_by": "start of work",
+    "nickname": "Initial Payment",
+    "product": {
+      "products": [
+        "uid-nop-470"
+      ]
+    },
+    "id": ""
+  },
+  "price2": {
+    "count": 2,
+    "currency": "usd",
+    "unit_amount": 6149400,
+    "active": true,
+    "billing_scheme": "per_unit",
+    "pay_by": "before project launch",
+    "pay_days": 14,
+    "late_fee": 10000,
+    "nickname": "Final Payment",
+    "product": {
+      "products": [
+        "uid-nop-470"
+      ]
+    },
+    "id": ""
+  },
+  "checkout_session_1": {
+    "discounts": [
+      {
+        "coupon": "cou-nop-470"
+      }
+    ],
+    "line_items": [
+      {
+        "price": "",
+        "quantity": 1
+      }
+    ],
+    "mode": "payment",
+    "return_url": "https://dev.payments.august.style/uid-nop-470?session_id={CHECKOUT_SESSION_ID}",
+    "ui_mode": "custom"
+  },
+  "checkout_session_2": {
+    "discounts": [
+      {
+        "coupon": null
+      }
+    ],
+    "line_items": [
+      {
+        "price": "",
+        "quantity": 1
+      }
+    ],
+    "mode": "payment",
+    "return_url": "https://dev.payments.august.style/uid-nop-470?session_id={CHECKOUT_SESSION_ID}",
+    "ui_mode": "custom"
+  },
+  "project_scope_summary": "Development of a customized AI chatbot for the client's business.",
+  "project_scope_full": "Development of a customized AI chatbot for the client's business."
+}
