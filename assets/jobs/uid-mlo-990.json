@@ -9,7 +9,7 @@
     "signatures": {
       "contractor": {
         "legal_name": "Sean August Horvath",
-        "signed_date": null
+        "signed_date": "2026-02-24T09:34:39.727382Z"
       },
       "client": {
         "legal_name": null,
@@ -19,20 +19,20 @@
   },
   "docs": {
     "contract": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "kon-mlo-990",
+      "pdf": "assets/pdf/contract/kon-mlo-990.pdf",
+      "file_id": "1OsjgHLs68Z31hgZopQ_U0b49BSvbBtjeuaa69xkT_kg",
+      "url": "https://dev.payments.august.style/assets/pdf/contract/kon-mlo-990.pdf",
+      "sha256": "21757e8c1cd533c2e152b830bbfa582a39fcd66267f844b0ba84c537e311c592",
+      "created": "2026-02-24T09:34:46.847744Z"
     },
     "invoice": {
-      "id": null,
-      "pdf": null,
-      "file_id": null,
-      "url": null,
-      "sha256": null,
-      "created": null
+      "id": "inv-mlo-990",
+      "pdf": "assets/pdf/invoice/inv-mlo-990.pdf",
+      "file_id": "1HeiTQpTt5adsBPxb1yt1ldQ111GAVizjrWakj3kuL7o",
+      "url": "https://dev.payments.august.style/assets/pdf/invoice/inv-mlo-990.pdf",
+      "sha256": "fd1a52ef241aeba2a2d28a9d5c8d7ea54a99be8f6c61416918a2beb32a7d9c08",
+      "created": "2026-02-24T09:34:53.476080Z"
     },
     "balance": {
       "id": null,
@@ -41,16 +41,23 @@
       "url": null,
       "sha256": null,
       "created": null
+    },
+    "combined": {
+      "id": "uid-mlo-990",
+      "pdf": "assets/pdf/combined/uid-mlo-990.pdf",
+      "url": "https://dev.payments.august.style/assets/pdf/combined/uid-mlo-990.pdf",
+      "sha256": "860714f813d60393252d85726b66ac051ae4c0f1bb215a59001218eda23bd287",
+      "created": "2026-02-24T09:35:53.543332Z"
     }
   },
   "state": {
     "objects": {
-      "created": null,
-      "product": null,
-      "price_1": null,
-      "price_2": null,
-      "customer": null,
-      "coupon": null
+      "created": "2026-02-24T09:34:39.727382Z",
+      "product": "uid-mlo-990",
+      "price_1": "price_1T4I0q9fljwH26CPLzvJtU2f",
+      "price_2": "price_1T4I0q9fljwH26CP6qRBgc55",
+      "customer": "cus-mlo-990",
+      "coupon": "cou-mlo-990"
     },
     "client_status": {
       "logged_in": null,
@@ -115,7 +122,7 @@
         "uid-mlo-990"
       ]
     },
-    "id": ""
+    "id": "price_1T4I0q9fljwH26CPLzvJtU2f"
   },
   "price2": {
     "count": 2,
@@ -132,7 +139,7 @@
         "uid-mlo-990"
       ]
     },
-    "id": ""
+    "id": "price_1T4I0q9fljwH26CP6qRBgc55"
   },
   "checkout_session_1": {
     "discounts": [
@@ -142,7 +149,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1T4I0q9fljwH26CPLzvJtU2f",
         "quantity": 1
       }
     ],
@@ -158,7 +165,7 @@
     ],
     "line_items": [
       {
-        "price": "",
+        "price": "price_1T4I0q9fljwH26CP6qRBgc55",
         "quantity": 1
       }
     ],
