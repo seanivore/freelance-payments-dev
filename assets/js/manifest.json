@@ -1,11 +1,4 @@
 {
-  "jobs": {
-    "milo-milos-ai-journaler": {
-      "file_path": "assets/jobs/uid-mlo-990.json",
-      "job_id": "uid-mlo-990",
-      "login_keyword": "milos-ai-journaler",
-      "login_name": "Milo"
-    }
-  },
-  "generated_at": "2026-02-24T09:35:53.544842Z"
+  "jobs": {},
+  "generated_at": "2026-02-24T09:38:10.829183Z"
 }
